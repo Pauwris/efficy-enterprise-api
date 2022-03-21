@@ -110,7 +110,7 @@ await crm.executeBatch();
 compSearch.items; // An array of row items
 </code></pre>
 <p>Inside your Efficy Enterprise, running in the browser</p>
-<pre class="prettyprint source lang-javascript"><code>const {CrmRpc} = await import('../../../shared/js/projutils/efficy-enterprise-api-browser-es.js');
+<pre class="prettyprint source lang-javascript"><code>const {CrmRpc} = await import('../../../node_modules/efficy-enterprise-api-browser/es.js');
 const crm = new CrmRpc();
 
 const proposal = crm.openEditObject(&quot;docu&quot;, 0);

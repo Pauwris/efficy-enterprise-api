@@ -13,7 +13,7 @@ define([
 ], function (StandardCommands, Model, Browser, Url, WindowManager, extendCommand) {
 
 	async function editNewProposal() {
-		const {CrmRpc} = await import('../../../shared/js/projutils/efficy-enterprise-api-browser-es.js');
+		const {CrmRpc} = await import('../../../node_modules/efficy-enterprise-api-browser/es.js');
 		const crm = new CrmRpc();
 
 		const proposal = crm.openEditObject("docu", 0);
