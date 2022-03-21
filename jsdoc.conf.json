@@ -12,7 +12,8 @@
 			"./lib/remote-objects/api.mjs",
 			"./lib/remote-objects/consult.mjs",
 			"./lib/remote-objects/edit.mjs",
-			"./lib/ws-objects/ws-object.mjs"
+			"./lib/ws-objects/ws-object.mjs",
+			"./readme.md"
 		],
 		"includePattern": ".+\\.mjs?$",
 		"excludePattern": "(^|\\/|\\\\)_"
@@ -28,6 +29,20 @@
 	"templates": {
 		"cleverLinks": true,
 		"monospaceLinks": false,
+		"logoFile": "",
+		"dateFormat": "ddd MMM Do YYYY",
+		"outputSourceFiles": true,
+		"outputSourcePath": true,
+		"systemName": "Efficy Enterprise API",
+		"footer": "Efficy Enterprise API for Node.js and browser",
+		"copyright": "Created by Kristof Pauwels",
+		"navType": "vertical",
+		"theme": "cosmo",
+		"linenums": true,
+		"collapseSymbols": false,
+		"inverseNav": false,
+		"protocol": "html://",
+		"methodHeadingReturns": false,
 		"default": {
 			"useLongnameInNav": true,
 			"includeDate": false
@@ -38,6 +53,7 @@
 		"encoding": "utf8",
 		"destination": "./docs/",
 		"recurse": true,
-		"tutorials": ""
+		"tutorials": "./tutorials",
+		"readme": "./readme.md"
 	}
 }

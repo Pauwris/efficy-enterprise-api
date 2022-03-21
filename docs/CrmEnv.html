@@ -1,73 +1,127 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Class: CrmEnv</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Efficy Enterprise API Class: CrmEnv</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
 </head>
 
 <body>
 
-<div id="main">
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Efficy Enterprise API</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="WsObject.html">WsObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Edit new proposal.html">Edit new proposal</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
 
-    <h1 class="page-title">Class: CrmEnv</h1>
-
-    
-
+</div>
+</div>
 
 
+<div class="container" id="toc-content">
+<div class="row">
 
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: CrmEnv</h1>
 <section>
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CrmEnv<span class="signature">(env<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2>
+        CrmEnv
+        </h2>
         
             <div class="class-description">Class to define the parameters of the Efficy Enterprise server</div>
         
     
 </header>
 
+
 <article>
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="CrmEnv"><span class="type-signature"></span>new CrmEnv( [env])</h4>
+    
+    
+</dt>
+<dd>
 
     
-    <h2>Constructor</h2>
+    <div class="description">
+        Create a Crm Environment. Set null when executed from browser
+    </div>
     
 
     
-    <h4 class="name" id="CrmEnv"><span class="type-signature"></span>new CrmEnv<span class="signature">(env<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
 
     
 
-
-
-<div class="description">
-    Create a Crm Environment. Set null when executed from browser
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
+    
+        <h5>Parameters:</h5>
+        
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -77,7 +131,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -100,6 +154,7 @@
 <span class="param-type">Object</span>
 
 
+
             
             </td>
 
@@ -118,10 +173,10 @@
             
 
             <td class="description last">The definition object of the targeted CRM environment
-                <h6>Properties</h6>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -131,7 +186,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -154,6 +209,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -195,6 +251,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -232,6 +289,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -273,6 +331,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -310,6 +369,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -351,6 +411,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -390,6 +451,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -427,12 +489,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -442,59 +509,65 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-4">line 4</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line4">line 4</a>
-    </li></ul></dd>
-    
+	
+	<dt class="tag-tutorial method-doc-label method-doc-details-label">Tutorials:</dt>
+	<dd class="tag-tutorial">
+		<ul>
+			<li><a href="tutorial-CRM Environment.html">CRM Environment</a></li>
+			</ul>
+	</dd>
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>new CrmEnv({   "url": "https://mycompany.efficy.cloud/",   "apiKey": "86E353284C0C4A848F7ADEA13589C8B6"});</code></pre>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">new CrmEnv({   &quot;url&quot;: &quot;https://mycompany.efficy.cloud/&quot;,   &quot;apiKey&quot;: &quot;86E353284C0C4A848F7ADEA13589C8B6&quot;});</pre>
 
 
+    
+</dd>
 
     
     </div>
@@ -510,38 +583,45 @@
     
 
     
-
-    
         <h3 class="subsection-title">Members</h3>
 
-        
+        <dl>
             
-<h4 class="name" id="cookieHeader"><span class="type-signature">(readonly) </span>cookieHeader<span class="type-signature"> :string</span></h4>
+<hr>
+<dt class="name" id="cookieHeader">
+    <h4 id="cookieHeader"><span class="type-signature">&lt;readonly> </span>cookieHeader<span class="type-signature"> :string</span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
+    </div>
+    
 
-
-
-<div class="description">
-    Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">string</span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -551,69 +631,78 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-95">line 95</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line94">line 94</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="isEfficy"><span class="type-signature">(readonly) </span>isEfficy<span class="type-signature"> :boolean</span></h4>
+<hr>
+<dt class="name" id="isEfficy">
+    <h4 id="isEfficy"><span class="type-signature">&lt;readonly> </span>isEfficy<span class="type-signature"> :boolean</span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns true if this code runs on the browser
+    </div>
+    
 
-
-
-<div class="description">
-    Returns true if this code runs on the browser
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">boolean</span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -623,69 +712,78 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-86">line 86</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line85">line 85</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="isNode"><span class="type-signature">(readonly) </span>isNode<span class="type-signature"> :boolean</span></h4>
+<hr>
+<dt class="name" id="isNode">
+    <h4 id="isNode"><span class="type-signature">&lt;readonly> </span>isNode<span class="type-signature"> :boolean</span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns true if this code runs in node.js
+    </div>
+    
 
-
-
-<div class="description">
-    Returns true if this code runs in node.js
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">boolean</span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -695,69 +793,78 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-77">line 77</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line76">line 76</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="sessionId"><span class="type-signature">(readonly) </span>sessionId<span class="type-signature"> :string</span></h4>
+<hr>
+<dt class="name" id="sessionId">
+    <h4 id="sessionId"><span class="type-signature">&lt;readonly> </span>sessionId<span class="type-signature"> :string</span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns the session ID, e.g. '3B826396-22AE9698'
+    </div>
+    
 
-
-
-<div class="description">
-    Returns the session ID, e.g. '3B826396-22AE9698'
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">string</span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -767,69 +874,78 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-110">line 110</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line109">line 109</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="shortSessionId"><span class="type-signature">(readonly) </span>shortSessionId<span class="type-signature"> :string</span></h4>
+<hr>
+<dt class="name" id="shortSessionId">
+    <h4 id="shortSessionId"><span class="type-signature">&lt;readonly> </span>shortSessionId<span class="type-signature"> :string</span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns the first part of the session ID, e.g. '3B826396'
+    </div>
+    
 
-
-
-<div class="description">
-    Returns the first part of the session ID, e.g. '3B826396'
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">string</span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -839,76 +955,73 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-119">line 119</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line118">line 118</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
+</dd>
 
-
-
-
-        
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
             
+<hr>
+<dt>
+    <h4 class="name" id="setEnv"><span class="type-signature"></span>setEnv(env)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Update the Crm Environment set by the constructor
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="setEnv"><span class="type-signature"></span>setEnv<span class="signature">(env)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Update the Crm Environment set by the constructor
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -939,6 +1052,7 @@
 <span class="param-type">Object</span>
 
 
+
             
             </td>
 
@@ -947,10 +1061,10 @@
             
 
             <td class="description last">The definition object of the targeted CRM environment
-                <h6>Properties</h6>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
                 
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -960,7 +1074,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -983,6 +1097,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -1024,6 +1139,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1061,6 +1177,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -1102,6 +1219,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1139,6 +1257,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -1180,6 +1299,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1219,6 +1339,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -1256,12 +1377,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1271,56 +1397,54 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-env.mjs.html">crm-env.mjs</a>,
+				 <a href="crm-env.mjs.html#sunlight-1-line-50">line 50</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-env.mjs.html">crm-env.mjs</a>, <a href="crm-env.mjs.html#line49">line 49</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
+</dd>
 
-
-
-
-
-
-
-
-
-
-
-
-        
+        </dl>
     
 
     
@@ -1333,19 +1457,138 @@
 
 
 
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="WsObject.html">WsObject</a></li></ul><h3>Classes</h3><ul><li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li></ul>
-</nav>
 
-<br class="clear">
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a>
+
+	Efficy Enterprise API for Node.js and browser
+
+
+	<span class="copyright">
+	Created by Kristof Pauwels
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a>
+	
+		on Mon Mar 21st 2022
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
 </body>
 </html>

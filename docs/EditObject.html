@@ -1,73 +1,127 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Class: EditObject</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Efficy Enterprise API Class: EditObject</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
 </head>
 
 <body>
 
-<div id="main">
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Efficy Enterprise API</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="WsObject.html">WsObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Edit new proposal.html">Edit new proposal</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
 
-    <h1 class="page-title">Class: EditObject</h1>
-
-    
-
+</div>
+</div>
 
 
+<div class="container" id="toc-content">
+<div class="row">
 
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: EditObject</h1>
 <section>
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>EditObject<span class="signature">(remoteAPI, entity, key<span class="signature-attributes">opt</span>, editHandle<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2>
+        EditObject
+        </h2>
         
             <div class="class-description">Constructed class Returned by RemoteObjects.openEditObject</div>
         
     
 </header>
 
+
 <article>
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="EditObject"><span class="type-signature"></span>new EditObject(remoteAPI, entity [, key] [, editHandle])</h4>
+    
+    
+</dt>
+<dd>
 
     
-    <h2>Constructor</h2>
+    <div class="description">
+        Opens an edit context for the record identified by entity and key.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+    </div>
     
 
     
-    <h4 class="name" id="EditObject"><span class="type-signature"></span>new EditObject<span class="signature">(remoteAPI, entity, key<span class="signature-attributes">opt</span>, editHandle<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
 
     
 
-
-
-<div class="description">
-    Opens an edit context for the record identified by entity and key.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
+    
+        <h5>Parameters:</h5>
+        
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -77,7 +131,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -100,6 +154,7 @@
             
                 
 <span class="param-type">RemoteAPI</span>
+
 
 
             
@@ -137,6 +192,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -170,6 +226,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -211,6 +268,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -239,16 +297,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
+    
+<dl class="details">
+    
 
     <h5 class="subsection-title">Properties:</h5>
 
-    
+    <dl>
 
-<table class="props">
+<table class="props table table-striped">
     <thead>
     <tr>
         
@@ -279,6 +338,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -300,6 +360,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -325,6 +386,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -346,6 +408,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -371,6 +434,7 @@
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -384,11 +448,15 @@
     
     </tbody>
 </table>
+</dl>
 
+    
 
+	
 
+	
 
-<dl class="details">
+	
 
     
 
@@ -398,54 +466,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-18">line 18</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line18">line 18</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
     
     </div>
@@ -472,24 +538,30 @@
     
 
     
-
-    
         <h3 class="subsection-title">Members</h3>
 
-        
+        <dl>
             
-<h4 class="name" id="closecontext"><span class="type-signature">(protected) </span>closecontext<span class="type-signature"></span></h4>
+<hr>
+<dt class="name" id="closecontext">
+    <h4 id="closecontext"><span class="type-signature">&lt;protected> </span>closecontext<span class="type-signature"></span></h4>
 
+    
+</dt>
+<dd>
+    
 
+    
 
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -499,55 +571,63 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-27">line 27</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line27">line 27</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="commit"><span class="type-signature">(protected) </span>commit<span class="type-signature"></span></h4>
+<hr>
+<dt class="name" id="commit">
+    <h4 id="commit"><span class="type-signature">&lt;protected> </span>commit<span class="type-signature"></span></h4>
 
+    
+</dt>
+<dd>
+    
 
+    
 
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -557,55 +637,63 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-25">line 25</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line25">line 25</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="inserted"><span class="type-signature">(protected) </span>inserted<span class="type-signature"></span></h4>
+<hr>
+<dt class="name" id="inserted">
+    <h4 id="inserted"><span class="type-signature">&lt;protected> </span>inserted<span class="type-signature"></span></h4>
 
+    
+</dt>
+<dd>
+    
 
+    
 
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -615,76 +703,73 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-29">line 29</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line29">line 29</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
+</dd>
 
-
-
-
-        
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
             
+<hr>
+<dt>
+    <h4 class="name" id="activateCategory"><span class="type-signature"></span>activateCategory(categoryName)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Activates a category. If the user does not have the appropriate rights on the category, an exception is thrown.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="activateCategory"><span class="type-signature"></span>activateCategory<span class="signature">(categoryName)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Activates a category. If the user does not have the appropriate rights on the category, an exception is thrown.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -715,6 +800,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -729,12 +815,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -744,81 +835,81 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-244">line 244</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line244">line 244</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="afterExecute"><span class="type-signature">&lt;protected> </span>afterExecute()</h4>
+    
+    
+</dt>
+<dd>
 
     
 
     
-    <h4 class="name" id="afterExecute"><span class="type-signature">(protected) </span>afterExecute<span class="signature">()</span><span class="type-signature"></span></h4>
-    
 
     
 
+    
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -828,81 +919,81 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-434">line 434</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line434">line 434</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="asJsonRpc"><span class="type-signature">&lt;protected> </span>asJsonRpc()</h4>
+    
+    
+</dt>
+<dd>
 
     
 
     
-    <h4 class="name" id="asJsonRpc"><span class="type-signature">(protected) </span>asJsonRpc<span class="signature">()</span><span class="type-signature"></span></h4>
-    
 
     
 
+    
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -912,84 +1003,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-386">line 386</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line386">line 386</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="clearDetail"><span class="type-signature"></span>clearDetail(detail)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Clears all relations for the specified detail
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="clearDetail"><span class="type-signature"></span>clearDetail<span class="signature">(detail)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Clears all relations for the specified detail
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1020,6 +1106,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1034,12 +1121,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1049,85 +1141,85 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-230">line 230</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line230">line 230</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="closeContext"><span class="type-signature"></span>closeContext()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Closes the context and frees the memory on the web server.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="closeContext"><span class="type-signature"></span>closeContext<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
-
-
-
-<div class="description">
-    Closes the context and frees the memory on the web server.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1137,85 +1229,85 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-371">line 371</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line371">line 371</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="closingCommit"><span class="type-signature"></span>closingCommit()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Commits the changes, releases the record and executes closeContext
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="closingCommit"><span class="type-signature"></span>closingCommit<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
-
-
-
-<div class="description">
-    Commits the changes, releases the record and executes closeContext
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1225,85 +1317,85 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-379">line 379</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line379">line 379</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="commitChanges"><span class="type-signature"></span>commitChanges()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Commits the changes to the database.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="commitChanges"><span class="type-signature"></span>commitChanges<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
-
-
-
-<div class="description">
-    Commits the changes to the database.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1313,84 +1405,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-363">line 363</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line363">line 363</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="copyFromExisting"><span class="type-signature"></span>copyFromExisting(key [, minTableView] [, maxTableView])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Copies data from an existing record in the database. The same entity as the current is assumed.The table views within the index range minIndex to maxIndex are copied. By default, all table views are copied.To copy a single detail, obtain the table view index using IndexFromDetail and use this value as MinIndex and MaxIndex.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="copyFromExisting"><span class="type-signature"></span>copyFromExisting<span class="signature">(key, minTableView<span class="signature-attributes">opt</span>, maxTableView<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Copies data from an existing record in the database. The same entity as the current is assumed.The table views within the index range minIndex to maxIndex are copied. By default, all table views are copied.To copy a single detail, obtain the table view index using IndexFromDetail and use this value as MinIndex and MaxIndex.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1400,7 +1487,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1423,6 +1510,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -1458,6 +1546,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -1499,6 +1588,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1529,12 +1619,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1544,84 +1639,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-346">line 346</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line346">line 346</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="deleteDetail"><span class="type-signature"></span>deleteDetail(detail, detailKey)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Deletes a detail relation
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="deleteDetail"><span class="type-signature"></span>deleteDetail<span class="signature">(detail, detailKey)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Deletes a detail relation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1652,6 +1742,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1678,6 +1769,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1692,12 +1784,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1707,84 +1804,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-215">line 215</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line215">line 215</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getAttachment"><span class="type-signature"></span>getAttachment(k_file [, version])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Request attachment from FILES table
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getAttachment"><span class="type-signature"></span>getAttachment<span class="signature">(k_file, version<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="AttachmentObject.html">AttachmentObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Request attachment from FILES table
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1794,7 +1886,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1817,6 +1909,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -1854,6 +1947,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1884,12 +1978,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1899,53 +1998,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-118">line 118</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line118">line 118</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1957,44 +2055,42 @@
 <span class="param-type"><a href="AttachmentObject.html">AttachmentObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getCategoryDataSet"><span class="type-signature"></span>getCategoryDataSet(categoryName)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves the <code>DataSet</code> for category categoryName. Can be null when the category is not available to the current user.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getCategoryDataSet"><span class="type-signature"></span>getCategoryDataSet<span class="signature">(categoryName)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Retrieves the <code>DataSet</code> for category categoryName. Can be null when the category is not available to the current user.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2025,6 +2121,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2039,12 +2136,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2054,53 +2156,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-95">line 95</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line95">line 95</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2112,44 +2213,42 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getDetailDataSet"><span class="type-signature"></span>getDetailDataSet(detail [, filter] [, includeBlobContent])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves a relation <code>DataSet</code> for the specified detail in the edit context.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getDetailDataSet"><span class="type-signature"></span>getDetailDataSet<span class="signature">(detail, filter<span class="signature-attributes">opt</span>, includeBlobContent<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Retrieves a relation <code>DataSet</code> for the specified detail in the edit context.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2159,7 +2258,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -2182,6 +2281,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2217,6 +2317,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2258,6 +2359,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -2288,12 +2390,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2303,53 +2410,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-107">line 107</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line107">line 107</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2361,45 +2467,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getMasterDataSet"><span class="type-signature"></span>getMasterDataSet()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves a master <code>DataSet</code> from the edit context.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getMasterDataSet"><span class="type-signature"></span>getMasterDataSet<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
 
     
-
-
-
-<div class="description">
-    Retrieves a master <code>DataSet</code> from the edit context.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2409,53 +2518,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-85">line 85</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line85">line 85</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2467,44 +2575,42 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
-
-
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="insertAttachment"><span class="type-signature"></span>insertAttachment(attachedFileType, path)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Inserts an file
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="insertAttachment"><span class="type-signature"></span>insertAttachment<span class="signature">(attachedFileType, path)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Inserts an file
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2535,6 +2641,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2558,6 +2665,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2572,12 +2680,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2587,84 +2700,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-308">line 308</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line308">line 308</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="insertDetail"><span class="type-signature"></span>insertDetail(detail, detailKey [, linkMainCompany] [, retrieveName])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Inserts a detail relation
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="insertDetail"><span class="type-signature"></span>insertDetail<span class="signature">(detail, detailKey, linkMainCompany<span class="signature-attributes">opt</span>, retrieveName<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Inserts a detail relation
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2674,7 +2782,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -2697,6 +2805,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2734,6 +2843,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2767,6 +2877,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -2808,6 +2919,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -2838,12 +2950,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2853,84 +2970,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-177">line 177</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line177">line 177</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="setReference"><span class="type-signature"></span>setReference(id)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Requests that a unique reference number be generated when committing.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="setReference"><span class="type-signature"></span>setReference<span class="signature">(id)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Requests that a unique reference number be generated when committing.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2961,6 +3073,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2975,12 +3088,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2990,84 +3108,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-258">line 258</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line258">line 258</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="setUsers"><span class="type-signature"></span>setUsers(users [, clear])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the user relations.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="setUsers"><span class="type-signature"></span>setUsers<span class="signature">(users, clear<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Sets the user relations.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3077,7 +3190,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -3100,6 +3213,7 @@
             
                 
 <span class="param-type">array</span>
+
 
 
             
@@ -3137,6 +3251,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -3167,12 +3282,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3182,84 +3302,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-273">line 273</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line273">line 273</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="setUserSecurity"><span class="type-signature"></span>setUserSecurity(account, securityValue)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the security for a user or group.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="setUserSecurity"><span class="type-signature"></span>setUserSecurity<span class="signature">(account, securityValue)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Sets the security for a user or group.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3290,6 +3405,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3313,6 +3429,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3327,12 +3444,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3342,84 +3464,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-291">line 291</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line291">line 291</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="updateAttachment"><span class="type-signature"></span>updateAttachment(key, base64String)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Updates an embedded file
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="updateAttachment"><span class="type-signature"></span>updateAttachment<span class="signature">(key, base64String)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Updates an embedded file
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3452,6 +3569,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3481,6 +3599,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -3499,12 +3618,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3514,84 +3638,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-325">line 325</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line325">line 325</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="updateCategoryField"><span class="type-signature"></span>updateCategoryField(categoryName, name, value)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Updates the value of a field of any type in a category data set
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="updateCategoryField"><span class="type-signature"></span>updateCategoryField<span class="signature">(categoryName, name, value)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Updates the value of a field of any type in a category data set
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3622,6 +3741,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -3643,6 +3763,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -3671,6 +3792,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3685,12 +3807,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3700,84 +3827,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-148">line 148</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line148">line 148</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="updateCategoryFields"><span class="type-signature"></span>updateCategoryFields(categoryName, fieldsObj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Updates the value of a field of any type in a category data set
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="updateCategoryFields"><span class="type-signature"></span>updateCategoryFields<span class="signature">(categoryName, fieldsObj)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Updates the value of a field of any type in a category data set
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3808,6 +3930,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -3831,6 +3954,7 @@
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -3845,12 +3969,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3860,84 +3989,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-162">line 162</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line162">line 162</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="updateDetail"><span class="type-signature"></span>updateDetail(detail, detailKey, fieldsObj,)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Updates field values of a detail relation. When the detail relation doesn't exist, an exception is thrown.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="updateDetail"><span class="type-signature"></span>updateDetail<span class="signature">(detail, detailKey, fieldsObj,)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Updates field values of a detail relation. When the detail relation doesn't exist, an exception is thrown.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3968,6 +4092,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -3994,6 +4119,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -4017,6 +4143,7 @@
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -4031,12 +4158,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -4046,84 +4178,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-198">line 198</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line198">line 198</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="updateField"><span class="type-signature"></span>updateField(name, value)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Updates the field values of a master data set
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="updateField"><span class="type-signature"></span>updateField<span class="signature">(name, value)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Updates the field values of a master data set
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -4154,6 +4281,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -4180,6 +4308,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -4194,12 +4323,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -4209,84 +4343,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-128">line 128</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line128">line 128</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="updateFields"><span class="type-signature"></span>updateFields(fieldsObj)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Updates the field values of a master data set.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="updateFields"><span class="type-signature"></span>updateFields<span class="signature">(fieldsObj)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Updates the field values of a master data set.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -4317,6 +4446,7 @@
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -4331,12 +4461,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -4346,56 +4481,54 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>,
+				 <a href="remote-objects_edit.mjs.html#sunlight-1-line-137">line 137</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="remote-objects_edit.mjs.html">remote-objects/edit.mjs</a>, <a href="remote-objects_edit.mjs.html#line137">line 137</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
+</dd>
 
-
-
-
-
-
-
-
-
-
-
-
-        
+        </dl>
     
 
     
@@ -4408,19 +4541,138 @@
 
 
 
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="WsObject.html">WsObject</a></li></ul><h3>Classes</h3><ul><li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li></ul>
-</nav>
 
-<br class="clear">
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a>
+
+	Efficy Enterprise API for Node.js and browser
+
+
+	<span class="copyright">
+	Created by Kristof Pauwels
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a>
+	
+		on Mon Mar 21st 2022
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
 </body>
 </html>

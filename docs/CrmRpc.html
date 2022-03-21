@@ -1,73 +1,127 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Class: CrmRpc</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Efficy Enterprise API Class: CrmRpc</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cosmo.css">
+
 </head>
 
 <body>
 
-<div id="main">
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Efficy Enterprise API</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="WsObject.html">WsObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Edit new proposal.html">Edit new proposal</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
 
-    <h1 class="page-title">Class: CrmRpc</h1>
-
-    
-
+</div>
+</div>
 
 
+<div class="container" id="toc-content">
+<div class="row">
 
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Class: CrmRpc</h1>
 <section>
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CrmRpc<span class="signature">(crmEnv<span class="signature-attributes">opt</span>, logFunction<span class="signature-attributes">opt</span>, threadId<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2>
+        CrmRpc
+        </h2>
         
             <div class="class-description">Class to create Remote Objects</div>
         
     
 </header>
 
+
 <article>
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="CrmRpc"><span class="type-signature"></span>new CrmRpc( [crmEnv] [, logFunction] [, threadId])</h4>
+    
+    
+</dt>
+<dd>
 
     
-    <h2>Constructor</h2>
+    <div class="description">
+        Construct a CrmRpc object
+    </div>
     
 
     
-    <h4 class="name" id="CrmRpc"><span class="type-signature"></span>new CrmRpc<span class="signature">(crmEnv<span class="signature-attributes">opt</span>, logFunction<span class="signature-attributes">opt</span>, threadId<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
 
     
 
-
-
-<div class="description">
-    Construct a CrmRpc object
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
+    
+        <h5>Parameters:</h5>
+        
 
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -77,7 +131,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -98,6 +152,7 @@
             
                 
 <span class="param-type"><a href="CrmEnv.html">CrmEnv</a></span>
+
 
 
             
@@ -133,6 +188,7 @@
 <span class="param-type">function</span>
 
 
+
             
             </td>
 
@@ -166,6 +222,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -190,12 +247,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -205,59 +267,58 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-28">line 28</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line28">line 28</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>function logger(msg, reqLog) {  console.log(msg);}const crm = new CrmRpc(crmEnv, logger);</code></pre>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">function logger(msg, reqLog) {  console.log(msg);}const crm = new CrmRpc(crmEnv, logger);</pre>
 
 
+    
+</dd>
 
     
     </div>
@@ -284,38 +345,45 @@
     
 
     
-
-    
         <h3 class="subsection-title">Members</h3>
 
-        
+        <dl>
             
-<h4 class="name" id="constants"><span class="type-signature">(readonly) </span>constants<span class="type-signature"> :object</span></h4>
+<hr>
+<dt class="name" id="constants">
+    <h4 id="constants"><span class="type-signature">&lt;readonly> </span>constants<span class="type-signature"> :object</span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Efficy Enterprise constants
+    </div>
+    
 
-
-
-<div class="description">
-    Efficy Enterprise constants
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type">object</span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -325,69 +393,78 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-332">line 332</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line332">line 332</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
-
-
-
+    
+</dd>
 
         
             
-<h4 class="name" id="ws"><span class="type-signature">(readonly) </span>ws<span class="type-signature"> :<a href="WsObject.html">WsObject</a></span></h4>
+<hr>
+<dt class="name" id="ws">
+    <h4 id="ws"><span class="type-signature">&lt;readonly> </span>ws<span class="type-signature"> :<a href="WsObject.html">WsObject</a></span></h4>
 
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Provides access to the methods of a constructed WsObjectMethods are isolated from RemoteObjects because they contain implicit executeBatch() operations
+    </div>
+    
 
-
-
-<div class="description">
-    Provides access to the methods of a constructed WsObjectMethods are isolated from RemoteObjects because they contain implicit executeBatch() operations
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
 <span class="param-type"><a href="WsObject.html">WsObject</a></span>
 
 
-        </li>
-    </ul>
 
+            </li>
+        </ul>
+    
 
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -397,76 +474,73 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-323">line 323</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line323">line 323</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
+</dd>
 
-
-
-
-        
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
-        
+        <dl>
             
+<hr>
+<dt>
+    <h4 class="name" id="consultFavorites"><span class="type-signature"></span>consultFavorites(entity)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Consult your favorite records.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="consultFavorites"><span class="type-signature"></span>consultFavorites<span class="signature">(entity)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Consult your favorite records.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -495,6 +569,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -511,12 +586,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -526,53 +606,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-249">line 249</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line249">line 249</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -584,49 +663,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const compFavorites = crm.consultFavorites(&quot;Comp&quot;);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const compFavorites = crm.consultFavorites("Comp");</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="consultManyEx"><span class="type-signature"></span>consultManyEx(entity, whereFields, whereValues, orderByExpression)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Selects records that exactly match certain field values
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="consultManyEx"><span class="type-signature"></span>consultManyEx<span class="signature">(entity, whereFields, whereValues, orderByExpression)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Selects records that exactly match certain field values
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -655,6 +733,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -680,6 +759,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -701,6 +781,7 @@
             
                 
 <span class="param-type">array</span>
+
 
 
             
@@ -726,6 +807,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -740,12 +822,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -755,53 +842,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-225">line 225</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line225">line 225</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -813,49 +899,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const morningMeetings = crm.consultManyEx(&quot;Acti&quot;, [&quot;PLANNED&quot;, &quot;D_BEGIN&quot;], [&quot;1&quot;, &quot;2022-03-14 09:00:00&quot;], &quot;D_BEGIN&quot;);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const morningMeetings = crm.consultManyEx("Acti", ["PLANNED", "D_BEGIN"], ["1", "2022-03-14 09:00:00"], "D_BEGIN");</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="consultRecent"><span class="type-signature"></span>consultRecent(entity [, extraFields])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Consult your recent records, optionally extended by additional fields.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="consultRecent"><span class="type-signature"></span>consultRecent<span class="signature">(entity, extraFields<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Consult your recent records, optionally extended by additional fields.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -865,7 +950,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -888,6 +973,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -925,6 +1011,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -955,12 +1042,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -970,53 +1062,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-238">line 238</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line238">line 238</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1028,49 +1119,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const compRecents = crm.consultRecent(&quot;Comp&quot;);const compRecentsEx = crm.consultRecent(&quot;Comp&quot;, [&quot;CITY&quot;, &quot;COUNTRY&quot;]);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const compRecents = crm.consultRecent("Comp");const compRecentsEx = crm.consultRecent("Comp", ["CITY", "COUNTRY"]);</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="deleteEntity"><span class="type-signature"></span>deleteEntity(entity, keys)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Deletes records
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="deleteEntity"><span class="type-signature"></span>deleteEntity<span class="signature">(entity, keys)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Deletes records
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1101,6 +1191,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -1127,6 +1218,7 @@
 <span class="param-type">Array.&lt;number></span>
 
 
+
             
             </td>
 
@@ -1141,12 +1233,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1156,85 +1253,85 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-312">line 312</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line312">line 312</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="executeBatch"><span class="type-signature">&lt;async> </span>executeBatch()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Execute all assembled and queued RPC operations
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="executeBatch"><span class="type-signature">(async) </span>executeBatch<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
-
-
-
-<div class="description">
-    Execute all assembled and queued RPC operations
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1244,84 +1341,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-48">line 48</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line48">line 48</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="executeDatabaseQuery"><span class="type-signature"></span>executeDatabaseQuery(idQuery [, queryParameters] [, loadBlobs] [, recordCount])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Executes a database query stored in QUERIES
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="executeDatabaseQuery"><span class="type-signature"></span>executeDatabaseQuery<span class="signature">(idQuery, queryParameters<span class="signature-attributes">opt</span>, loadBlobs<span class="signature-attributes">opt</span>, recordCount<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Executes a database query stored in QUERIES
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1331,7 +1423,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1354,6 +1446,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -1391,6 +1484,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -1426,6 +1520,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -1467,6 +1562,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1497,12 +1593,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1512,53 +1613,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-180">line 180</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line180">line 180</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1570,49 +1670,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const tags = crm.executeDatabaseQuery(99990034); // Query &quot;Standard: Top company tags&quot;</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const tags = crm.executeDatabaseQuery(99990034); // Query "Standard: Top company tags"</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="executeSqlQuery"><span class="type-signature"></span>executeSqlQuery(sqlQueryText, queryParameters [, loadBlobs] [, recordCount])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Runs a native (SQL) database query, only if the user has SQL Exec the permissions!
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="executeSqlQuery"><span class="type-signature"></span>executeSqlQuery<span class="signature">(sqlQueryText, queryParameters, loadBlobs<span class="signature-attributes">opt</span>, recordCount<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Runs a native (SQL) database query, only if the user has SQL Exec the permissions!
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1622,7 +1721,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1645,6 +1744,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -1682,6 +1782,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -1715,6 +1816,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -1756,6 +1858,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -1786,12 +1889,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -1801,53 +1909,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-210">line 210</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line210">line 210</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -1859,49 +1966,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const appos = crm.executeSqlQuery(&quot;Select * from ACTIONS where PLANNED=:p1 and DONE=:p2&quot;, [&quot;1&quot;, &quot;0&quot;], true, 2);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const appos = crm.executeSqlQuery("Select * from ACTIONS where PLANNED=:p1 and DONE=:p2", ["1", "0"], true, 2);</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="executeSystemQuery"><span class="type-signature"></span>executeSystemQuery(master, detail, queryParameters [, loadBlobs] [, recordCount])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Executes a system database query stored in SYS_QUERIES
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="executeSystemQuery"><span class="type-signature"></span>executeSystemQuery<span class="signature">(master, detail, queryParameters, loadBlobs<span class="signature-attributes">opt</span>, recordCount<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Executes a system database query stored in SYS_QUERIES
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -1911,7 +2017,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -1934,6 +2040,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -1971,6 +2078,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2006,6 +2114,7 @@
 <span class="param-type">array</span>
 
 
+
             
             </td>
 
@@ -2039,6 +2148,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -2080,6 +2190,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2110,12 +2221,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2125,53 +2241,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-195">line 195</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line195">line 195</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2183,49 +2298,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const contDupls = crm.executeSystemQuery(4, 1, [11000,2]); // System query &quot;Own Duplicate List&quot;</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const contDupls = crm.executeSystemQuery(4, 1, [11000,2]); // System query "Own Duplicate List"</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getCategoryCollection"><span class="type-signature"></span>getCategoryCollection(entity)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Request the accessible categories - for the current user - of the given entity
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getCategoryCollection"><span class="type-signature"></span>getCategoryCollection<span class="signature">(entity)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Request the accessible categories - for the current user - of the given entity
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2256,6 +2370,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2270,12 +2385,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2285,53 +2405,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-260">line 260</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line260">line 260</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2343,49 +2462,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const compCategories = crm.getCategoryCollection(&quot;comp&quot;);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const compCategories = crm.getCategoryCollection("comp");</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getConsultObject"><span class="type-signature"></span>getConsultObject(consultHandle, entity)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create and return an ConsultObject based on an existing consultHandle
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getConsultObject"><span class="type-signature"></span>getConsultObject<span class="signature">(consultHandle, entity)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Create and return an ConsultObject based on an existing consultHandle
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2416,6 +2534,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2439,6 +2558,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2453,12 +2573,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2468,84 +2593,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-83">line 83</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line83">line 83</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getEditObject"><span class="type-signature"></span>getEditObject(editHandle)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Create and return an EditObject based on an existing editHandle
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getEditObject"><span class="type-signature"></span>getEditObject<span class="signature">(editHandle)</span><span class="type-signature"></span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Create and return an EditObject based on an existing editHandle
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2576,6 +2696,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -2590,12 +2711,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2605,84 +2731,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-127">line 127</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line127">line 127</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getSetting"><span class="type-signature"></span>getSetting(module, name [, asString])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Requests the current value of a given Efficy setting.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getSetting"><span class="type-signature"></span>getSetting<span class="signature">(module, name, asString<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="StringObject.html">StringObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Requests the current value of a given Efficy setting.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -2692,7 +2813,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -2715,6 +2836,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2752,6 +2874,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2787,6 +2910,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -2817,12 +2941,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2832,53 +2961,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-301">line 301</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line301">line 301</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -2890,50 +3018,54 @@
 <span class="param-type"><a href="StringObject.html">StringObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const workingPeriodFrom = crm.getSetting(&quot;user&quot;, &quot;WorkingPeriodFrom&quot;);const workingPeriodFromFloat = crm.getSetting(&quot;user&quot;, &quot;WorkingPeriodFrom&quot;, false);await crm.executeBatch();workingPeriodFrom.result; // e.g. &quot;30/12/1899 08:00&quot;workingPeriodFromFloat.result; // e.g. &quot;0.333333333333333</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const workingPeriodFrom = crm.getSetting("user", "WorkingPeriodFrom");const workingPeriodFromFloat = crm.getSetting("user", "WorkingPeriodFrom", false);await crm.executeBatch();workingPeriodFrom.result; // e.g. "30/12/1899 08:00"workingPeriodFromFloat.result; // e.g. "0.333333333333333</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getSystemSettings"><span class="type-signature"></span>getSystemSettings()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Request a list of system settings. Use the Map object to retrieve settings
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getSystemSettings"><span class="type-signature"></span>getSystemSettings<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="ListObject.html">ListObject</a>}</span></h4>
     
 
     
-
-
-
-<div class="description">
-    Request a list of system settings. Use the Map object to retrieve settings
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -2943,53 +3075,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-284">line 284</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line284">line 284</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -3001,50 +3132,54 @@
 <span class="param-type"><a href="ListObject.html">ListObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const settings = crm.getSystemSettings();await crm.executeBatch();settings.map.get(&quot;ShortDateFormat&quot;); // e.g. &quot;dd/mm/yyyy&quot;settings.map.forEach(console.log); // prints each setting on console</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const settings = crm.getSystemSettings();await crm.executeBatch();settings.map.get("ShortDateFormat"); // e.g. "dd/mm/yyyy"settings.map.forEach(console.log); // prints each setting on console</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="getUserList"><span class="type-signature"></span>getUserList()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Requests a list of users, groups and resources
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="getUserList"><span class="type-signature"></span>getUserList<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
 
     
-
-
-
-<div class="description">
-    Requests a list of users, groups and resources
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3054,53 +3189,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-271">line 271</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line271">line 271</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -3112,50 +3246,54 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const userList = crm.getUserList();</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const userList = crm.getUserList();</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="logoff"><span class="type-signature"></span>logoff()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Logoff the remote session, not possible when crmEnv.isEfficy === true
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="logoff"><span class="type-signature"></span>logoff<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
-
-
-
-<div class="description">
-    Logoff the remote session, not possible when crmEnv.isEfficy === true
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3165,84 +3303,79 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-54">line 54</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line54">line 54</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="openConsultContext"><span class="type-signature"></span>openConsultContext(entity, key)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Opens a consult context for the Entity.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="openConsultContext"><span class="type-signature"></span>openConsultContext<span class="signature">(entity, key)</span><span class="type-signature"> &rarr; {<a href="ConsultObject.html">ConsultObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Opens a consult context for the Entity.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3271,6 +3404,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -3296,6 +3430,7 @@
 <span class="param-type">number</span>
 
 
+
             
             </td>
 
@@ -3310,12 +3445,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3325,53 +3465,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-74">line 74</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line74">line 74</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -3383,49 +3522,48 @@
 <span class="param-type"><a href="ConsultObject.html">ConsultObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const comp = crm.openConsultContext(&quot;comp&quot;, 2);const dsComp = comp.getMasterDataSet();const dsCompAddress = comp.getCategoryDataSet(&quot;COMP$ADDRESS&quot;);const linkedContacts = comp.getDetailDataSet(&quot;cont&quot;);await crm.executeBatch();const companyNames = [comp.data.master.NAME, comp.data.category[&quot;COMP$ADDRESS&quot;].NAME];comp.closeContext();await crm.executeBatch();</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const comp = crm.openConsultContext("comp", 2);const dsComp = comp.getMasterDataSet();const dsCompAddress = comp.getCategoryDataSet("COMP$ADDRESS");const linkedContacts = comp.getDetailDataSet("cont");await crm.executeBatch();const companyNames = [comp.data.master.NAME, comp.data.category["COMP$ADDRESS"].NAME];comp.closeContext();await crm.executeBatch();</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="openEditObject"><span class="type-signature"></span>openEditObject(entity [, key])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Opens an edit context for the record identified by entity and key.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="openEditObject"><span class="type-signature"></span>openEditObject<span class="signature">(entity, key<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="EditObject.html">EditObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Opens an edit context for the record identified by entity and key.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3435,7 +3573,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -3458,6 +3596,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -3493,6 +3632,7 @@
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -3525,12 +3665,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3540,53 +3685,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-119">line 119</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line119">line 119</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -3598,49 +3742,48 @@
 <span class="param-type"><a href="EditObject.html">EditObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const docu = crm.openEditObject(&quot;docu&quot;, 0);docu.updateField(&quot;NAME&quot;, &quot;Jan&quot;);docu.insertDetail(&quot;Comp&quot;, 2);docu.insertDetail(&quot;Cont&quot;, 44395, true, true);docu.commitChanges();docu.activateCategory(&quot;DOCU$INVOICING&quot;);docu.updateCategoryFields(&quot;DOCU$INVOICING&quot;, {  &quot;D_INVOICE&quot;:&quot;2021-01-08T00:00:00&quot;,  &quot;COMMUNICATION&quot;: &quot;Hello World!&quot;});docu.updateCategoryField(&quot;DOCU$INVOICING&quot;, &quot;PRE_PAID&quot;, 123.456)docu.clearDetail(&quot;Comp&quot;);docu.insertDetail(&quot;Comp&quot;, 4);docu.insertDetail(&quot;Cont&quot;, 50512, false);docu.insertDetail(&quot;Prod&quot;, 4);docu.updateDetail(&quot;Prod&quot;, 0, {  QUANTITY: 5});docu.setUsers([169, 170], true);docu.setUserSecurity(99999002, 271);docu.setReference(99999001);docu.commitChanges();docu.closeContext();await crm.executeBatch();</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const docu = crm.openEditObject("docu", 0);docu.updateField("NAME", "Jan");docu.insertDetail("Comp", 2);docu.insertDetail("Cont", 44395, true, true);docu.commitChanges();docu.activateCategory("DOCU$INVOICING");docu.updateCategoryFields("DOCU$INVOICING", {  "D_INVOICE":"2021-01-08T00:00:00",  "COMMUNICATION": "Hello World!"});docu.updateCategoryField("DOCU$INVOICING", "PRE_PAID", 123.456)docu.clearDetail("Comp");docu.insertDetail("Comp", 4);docu.insertDetail("Cont", 50512, false);docu.insertDetail("Prod", 4);docu.updateDetail("Prod", 0, {  QUANTITY: 5});docu.setUsers([169, 170], true);docu.setUserSecurity(99999002, 271);docu.setReference(99999001);docu.commitChanges();docu.closeContext();await crm.executeBatch();</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="search"><span class="type-signature"></span>search(entity, method, value [, own] [, contains] [, opened])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Performs a search on the database and returns the data set with search results.
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="search"><span class="type-signature"></span>search<span class="signature">(entity, method, value, own<span class="signature-attributes">opt</span>, contains<span class="signature-attributes">opt</span>, opened<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Performs a search on the database and returns the data set with search results.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -3650,7 +3793,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
+        <th>Argument</th>
         
 
         
@@ -3673,6 +3816,7 @@
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -3710,6 +3854,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -3745,6 +3890,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -3778,6 +3924,7 @@
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -3819,6 +3966,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -3858,6 +4006,7 @@
 <span class="param-type">boolean</span>
 
 
+
             
             </td>
 
@@ -3888,12 +4037,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -3903,53 +4057,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-143">line 143</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line143">line 143</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -3961,49 +4114,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const compSearch = crm.search(&quot;comp&quot;, &quot;SEARCHFAST&quot;, &quot;Efficy&quot;);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const compSearch = crm.search("comp", "SEARCHFAST", "Efficy");</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="searchContactsByEmail"><span class="type-signature"></span>searchContactsByEmail(recipients)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns all the Contacts having one of the e-mail provided in their e-mail fields (or in the Cont_Comp relation).
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="searchContactsByEmail"><span class="type-signature"></span>searchContactsByEmail<span class="signature">(recipients)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Returns all the Contacts having one of the e-mail provided in their e-mail fields (or in the Cont_Comp relation).
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -4034,6 +4186,7 @@
 <span class="param-type">Array.&lt;string></span>
 
 
+
             
             </td>
 
@@ -4048,12 +4201,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -4063,53 +4221,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-154">line 154</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line154">line 154</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -4121,49 +4278,48 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
+
+        
+
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const contactsByEmail = crm.searchContactsByEmail([&quot;john.doe@efficy.com&quot;, &quot;john.doe@outlook.com&quot;]);</pre>
 
 
-
-
-    <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const contactsByEmail = crm.searchContactsByEmail(["john.doe@efficy.com", "john.doe@outlook.com"]);</code></pre>
-
-
+</dd>
 
         
             
+<hr>
+<dt>
+    <h4 class="name" id="searchContactsByPhone"><span class="type-signature"></span>searchContactsByPhone(phoneNumber)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns all the first Contacts having a match with the provided (formatted) phone number
+    </div>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="searchContactsByPhone"><span class="type-signature"></span>searchContactsByPhone<span class="signature">(phoneNumber)</span><span class="type-signature"> &rarr; {<a href="DataSetObject.html">DataSetObject</a>}</span></h4>
     
+        <h5>Parameters:</h5>
+        
 
-    
-
-
-
-<div class="description">
-    Returns all the first Contacts having a match with the provided (formatted) phone number
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
+<table class="params table table-striped">
     <thead>
     <tr>
         
@@ -4194,6 +4350,7 @@
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -4208,12 +4365,17 @@
     </tbody>
 </table>
 
+    
 
-
-
-
-
+    
 <dl class="details">
+    
+
+	
+
+	
+
+	
 
     
 
@@ -4223,53 +4385,52 @@
 
     
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
+	
 
-    
 
-    
 
-    
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="crm-rpc.mjs.html">crm-rpc.mjs</a>,
+				 <a href="crm-rpc.mjs.html#sunlight-1-line-166">line 166</a>
+			</li>
+		</ul>
+	</dd>
+	
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="crm-rpc.mjs.html">crm-rpc.mjs</a>, <a href="crm-rpc.mjs.html#line166">line 166</a>
-    </li></ul></dd>
-    
+	
 
-    
+	
 
-    
-
-    
+	
 </dl>
 
 
+    
 
+    
 
+    
 
+    
 
+    
 
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
+    
+    <h5>Returns:</h5>
+    
+            
 
 
 <dl>
@@ -4281,21 +4442,23 @@
 <span class="param-type"><a href="DataSetObject.html">DataSetObject</a></span>
 
 
+
     </dd>
 </dl>
 
-    
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>const contactsByPhone = crm.searchContactsByPhone("+32 474 00 00 00");</code></pre>
-
-
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">const contactsByPhone = crm.searchContactsByPhone(&quot;+32 474 00 00 00&quot;);</pre>
+
+
+    
+</dd>
+
+        </dl>
     
 
     
@@ -4308,19 +4471,138 @@
 
 
 
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="WsObject.html">WsObject</a></li></ul><h3>Classes</h3><ul><li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li></ul>
-</nav>
 
-<br class="clear">
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a>
+
+	Efficy Enterprise API for Node.js and browser
+
+
+	<span class="copyright">
+	Created by Kristof Pauwels
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a>
+	
+		on Mon Mar 21st 2022
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
 </body>
 </html>
