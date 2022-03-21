@@ -1,6 +1,15 @@
 {
 	"name": "efficy-enterprise-api",
+	"main": "./lib/index.mjs",
+	"browser": "./dist/efficy-enterprise-api-browser-es.js",
 	"version": "1.0.0",
+	"homepage": "https://github.com/Pauwris/efficy-enterprise-api#readme",
+	"bugs": {
+		"url" : "https://github.com/Pauwris/project/issues"
+	},
+	"repository": {
+		"repository": "github:Pauwris/efficy-enterprise-api"
+	},
 	"author": {
 		"name": "Kristof Pauwels"
 	},

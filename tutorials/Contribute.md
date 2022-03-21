@@ -40,3 +40,28 @@ The jsDoc generation configuration in JSON format: [jsdoc.conf.json](jsdoc.conf.
 ```powershell
 jsdoc --configure jsdoc.conf.json --template ./node_modules/ink-docstrap/template
 ```
+
+## Publish package to npm
+
+A package manager for JavaScript, included with Node.js
+
+1. Login to https://www.npmjs.com/
+2. In your local terminal, execute `npm adduser` to setup a one-time password (OTP) with your npmjs credentials. The OTP is sent by e-mail.
+3. Execute `npm publish`
+
+This development is npm package is named [efficy-enterprise-api](https://www.npmjs.com/package/efficy-enterprise-api)
+
+Install
+```powershell
+npm i efficy-enterprise-api
+```
+
+To publish updates, first increment the version, e.g.
+```powershell
+npm version 1.0.1
+```
+
+Commit git changes and npm publish
+```powershell
+npm publish
+```
