@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: crm-env.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: crm-env.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Class to define the parameters of the Efficy Enterprise server
+ */
+class CrmEnv {
+	#name = "CrmEnv";
+	#isNode = (typeof process !== "undefined" &amp;&amp; process?.versions?.node ? true : false);
+	#isEfficy = typeof window === "object";
+
+	/**
+	 * Create a Crm Environment. Set null when executed from browser
+	 * @param {Object} [env] - The definition object of the targeted CRM environment
+	 * @param {string} [env.url=""] - The URL of Efficy Enterprise, e.g. https://mycompany.efficy.cloud/. Set null when executed from browser
+	 * @param {string} [env.customer=""] - The optional customer profile name
+	 * @param {boolean} [env.logOff=false] - if true, logoff the session after the next executeBatch();
+	 * @param {string} [env.apiKey=""] - The API Key, if user and password are not used
+	 * @param {string} [env.user=""] - The user credential
+	 * @param {string} [env.pwd=""] - The password credential
+	 * @param {array} [env.cookies=[]] - Optional cookie setting
+	 * @example
+	 * new CrmEnv({
+	 *    "url": "https://mycompany.efficy.cloud/",
+	 *    "apiKey": "86E353284C0C4A848F7ADEA13589C8B6"
+	 * });
+	 */
+	constructor(env) {
+		if (typeof env === "object") {
+			this.setEnv(env);
+		}
+		if (this.#isEfficy) {
+			this.setEnv({
+				url: window.location.origin
+			});
+		}
+
+		this.#validate();
+	}
+
+	/**
+	 * Update the Crm Environment set by the constructor
+	 * @param {Object} env - The definition object of the targeted CRM environment
+	 * @param {string} [env.url=""] - The URL of Efficy Enterprise, e.g. https://mycompany.efficy.cloud/. Leave empty when executed from browser
+	 * @param {string} [env.customer=""] - The optional customer profile name
+	 * @param {boolean} [env.logOff=false] - if true, logoff the session after the next executeBatch();
+	 * @param {string} [env.apiKey=""] - The API Key, if user and password are not used
+	 * @param {string} [env.user=""] - The user credential
+	 * @param {string} [env.pwd=""] - The password credential
+	 * @param {array} [env.cookies=[]] - Optional cookie setting
+	 */
+	setEnv(env) {
+		this.url = env.url || ""; // e.g. "https://customer.efficy.com";
+		this.customer = env.customer || "";
+		this.logOff = typeof env.logOff === "boolean" ? env.logOff : false;
+
+		// Sensitive properties
+		this.apiKey = env.apiKey || "";
+		this.user = env.user || "";
+		this.pwd = env.pwd || "";
+		this.cookies = env.cookies || [];
+
+		// Replace last "/" with "";
+		this.url = this.url.replace(/\/$/,"");
+
+		this.#validate();
+	}
+
+	#validate() {
+		if (!this.#isValidHttpUrl(this.url)) throw new TypeError(`${this.#name}.validate::url is not valid`);
+		if (!this.#isEfficy &amp;&amp; !this.user &amp;&amp; !this.apiKey) throw new TypeError(`${this.#name}.validate::apiKey or user are not specified`);
+	}
+
+	/**
+	 * Returns true if this code runs in node.js
+	 * @readonly
+	 * @type {boolean}
+	 */
+	get isNode() {
+		return this.#isNode;
+	}
+
+	/**
+	 * Returns true if this code runs on the browser
+	 * @readonly
+	 * @type {boolean}
+	 */
+	get isEfficy() {
+		return this.#isEfficy;
+	}
+
+	/**
+	 * Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
+	 * @readonly
+	 * @type {string}
+	 */
+	get cookieHeader() {
+		if (Array.isArray(this.cookies)) {
+			const header = this.cookies
+				.filter(cookie => new Date() &lt; new Date(cookie.expires))
+				.map(cookie => [cookie.name, cookie.value].join("=")).join("; ");
+
+			return header;
+		}
+	}
+
+	/**
+	 * Returns the session ID, e.g. '3B826396-22AE9698'
+	 * @readonly
+	 * @type {string}
+	 */
+	get sessionId() {
+		return Array.isArray(this.cookies) &amp;&amp; this.cookies.length > 0 ? this.cookies[0].value: "";
+	}
+
+	/**
+	 * Returns the first part of the session ID, e.g. '3B826396'
+	 * @readonly
+	 * @type {string}
+	 */
+	get shortSessionId() {
+		return this.sessionId.split("-")[0];
+	}
+
+	#isValidHttpUrl(string) {
+		let url;
+
+		try {
+			url = new URL(string);
+		} catch (_) {
+			return false;
+		}
+
+		return url.protocol === "http:" || url.protocol === "https:";
+	}
+}
+
+export default CrmEnv</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="WsObject.html">WsObject</a></li></ul><h3>Classes</h3><ul><li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+	"plugins": [],
+	"recurseDepth": 10,
+	"source": {
+		"include": [
+			"./lib/crm-env.mjs",
+			"./lib/crm-rpc.mjs",
+			"./lib/remote-objects/dataset/dataset-object.mjs",
+			"./lib/remote-objects/list/list-object.mjs",
+			"./lib/remote-objects/base-type/string-object.mjs",
+			"./lib/remote-objects/attachment/type.mjs",
+			"./lib/remote-objects/api.mjs",
+			"./lib/remote-objects/consult.mjs",
+			"./lib/remote-objects/edit.mjs",
+			"./lib/ws-objects/ws-object.mjs"
+		],
+		"includePattern": ".+\\.mjs?$",
+		"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"sourceType": "module",
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": [
+			"jsdoc",
+			"closure"
+		]
+	},
+	"templates": {
+		"cleverLinks": true,
+		"monospaceLinks": false,
+		"default": {
+			"useLongnameInNav": true,
+			"includeDate": false
+		}
+	},
+	"opts": {
+		"template": "templates/default",
+		"encoding": "utf8",
+		"destination": "./doc/",
+		"recurse": true,
+		"tutorials": ""
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "efficy-enterprise-api",
+	"version": "1.0.0",
+	"author": {
+		"name": "Kristof Pauwels"
+	},
+	"dependencies": {
+		"node-fetch": "^3.2.0"
+	},
+	"devDependencies": {
+		"rollup-plugin-terser": "^7.0.2"
+	},
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": ["node_modules", "**/node_modules/*"]
+}
