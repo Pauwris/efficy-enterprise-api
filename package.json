@@ -2,7 +2,7 @@
 	"name": "efficy-enterprise-api",
 	"description": "The Efficy Enterprise API is developed for server-side usage in a Node.js environment (e.g. for integrations) and also bundled for usage inside an Efficy browser session for client-side JSON RPC requests.",
 	"main": "./lib/index.mjs",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"homepage": "https://github.com/Pauwris/efficy-enterprise-api#readme",
 	"keywords": [
 		"Efficy",
