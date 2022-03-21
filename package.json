@@ -9,7 +9,8 @@
 		"Efficy",
 		"CRM",
 		"Enterprise",
-		"JSON RPC"
+		"JSON RPC",
+		"Node.js"
 	],
 	"license": "MIT",
 	"bugs": {

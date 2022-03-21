@@ -21,6 +21,7 @@ class CrmEnv {
 	 *    "url": "https://mycompany.efficy.cloud/",
 	 *    "apiKey": "86E353284C0C4A848F7ADEA13589C8B6"
 	 * });
+	 * @tutorial CRM Environment
 	 */
 	constructor(env) {
 		if (typeof env === "object") {
@@ -1421,7 +1422,6 @@ class EditObject extends RemoteObject {
 
 /**
  * Class with methods that contain executeBatch commands
- * @namespace WsObject
  * @extends RemoteObject
 */
 class WsObject extends RemoteObject {

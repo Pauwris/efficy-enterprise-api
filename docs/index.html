@@ -96,8 +96,11 @@
         <article><h1>Efficy Enterprise API</h1>
 <h2>Introduction</h2>
 <p>The Efficy Enterprise API is developed for server-side usage in a <a href="https://nodejs.org/en/">Node.js</a> environment (e.g. for integrations) and also bundled for usage inside an Efficy browser session for client-side JSON RPC requests.</p>
+<p>In your Node.js project, first install the <a href="https://www.npmjs.com/package/efficy-enterprise-api">efficy-enterprise-api</a> npm package.</p>
+<pre class="prettyprint source lang-powershell"><code>npm i efficy-enterprise-api
+</code></pre>
 <p>Inside <a href="https://nodejs.org/en/">Node.js</a></p>
-<pre class="prettyprint source lang-javascript"><code>import { CrmEnv, CrmRpc} from &quot;./lib/index.mjs&quot;;
+<pre class="prettyprint source lang-javascript"><code>import { CrmEnv, CrmRpc} from &quot;efficy-enterprise-api&quot;;
 
 const crm = new CrmRpc(crmEnv); // See CrmEnv class
 const compSearch = crm.search(&quot;comp&quot;, &quot;SEARCHFAST&quot;, &quot;Efficy&quot;);

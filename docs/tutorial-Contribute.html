@@ -96,11 +96,37 @@ npm install --save-dev ink-docstrap
 <p>Execute rollup with default config file <a href="rollup.config.js">rollup.config.js</a></p>
 <pre class="prettyprint source lang-powershell"><code>rollup -c
 </code></pre>
-<p>Minify generated es bundle with <a href="https://www.npmjs.com/package/rollup-plugin-terser">rollup-plugin-terser</a></p>
+<p>Minify generated es bundle with <a href="https://www.npmjs.com/package/rollup-plugin-terser">rollup-plugin-terser</a>.
+Example on how to customze rollup.config.js to generate a minified JS bundle</p>
+<pre class="prettyprint source lang-json"><code>{
+	file: 'dist/efficy-enterprise-api-browser-es.min.js',
+	format: 'es',
+	plugins: [terser()],
+	name: 'EfficyEnterpriseApi',
+	banner: `/* efficy-enterprise-api, browser version ${version} */`
+}
+</code></pre>
 <h2>Usage of jsDoc</h2>
 <p>With jsDoc, we generate the documentation and tutorials you current are reading!
 The jsDoc generation configuration in JSON format: <a href="jsdoc.conf.json">jsdoc.conf.json</a>.</p>
 <pre class="prettyprint source lang-powershell"><code>jsdoc --configure jsdoc.conf.json --template ./node_modules/ink-docstrap/template
+</code></pre>
+<h2>Publish package to npm</h2>
+<p>A package manager for JavaScript, included with Node.js</p>
+<ol>
+<li>Login to https://www.npmjs.com/</li>
+<li>In your local terminal, execute <code>npm adduser</code> to setup a one-time password (OTP) with your npmjs credentials. The OTP is sent by e-mail.</li>
+<li>Execute <code>npm publish</code></li>
+</ol>
+<p>This development is npm package is named <a href="https://www.npmjs.com/package/efficy-enterprise-api">efficy-enterprise-api</a></p>
+<p>Install</p>
+<pre class="prettyprint source lang-powershell"><code>npm i efficy-enterprise-api
+</code></pre>
+<p>To publish updates, first increment the version, e.g.</p>
+<pre class="prettyprint source lang-powershell"><code>npm version 1.0.1
+</code></pre>
+<p>Commit git changes and npm publish</p>
+<pre class="prettyprint source lang-powershell"><code>npm publish
 </code></pre>
 </article>
 

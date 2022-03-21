@@ -30,7 +30,17 @@ Execute rollup with default config file [rollup.config.js](rollup.config.js)
 rollup -c
 ```
 
-Minify generated es bundle with [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser)
+Minify generated es bundle with [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser).
+Example on how to customze rollup.config.js to generate a minified JS bundle
+```json
+{
+	file: 'dist/efficy-enterprise-api-browser-es.min.js',
+	format: 'es',
+	plugins: [terser()],
+	name: 'EfficyEnterpriseApi',
+	banner: `/* efficy-enterprise-api, browser version ${version} */`
+}
+```
 
 ## Usage of jsDoc
 
