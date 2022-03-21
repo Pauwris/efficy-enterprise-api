@@ -35,6 +35,19 @@ await crm.executeBatch();
 proposal.edithandle; // The editHandle number, can be used to open an edit page
 ```
 
+
 ## Get started
 
-Consult the [github-pages](https://pauwris.github.io/efficy-enterprise-api/) documentation
+Learn the available public [CrmRpc](CrmRpc.html) methods and properties
+
+## Tutorials
+
+1. [How to configure your CRM environment](tutorial-CRM%20Environment.html)
+2. [How to insert a document with relations, categories and reference](tutorial-Insert%20document.html)
+3. [How to edit and open new non-committed Proposal](tutorial-Edit%20new%20proposal.html)
+4. [How to execute Queries and Searches](tutorial-Execute%20Queries%20and%20Searches.html)
+
+## Contribute
+
+The Efficy Enterprise API is developed with Visual Studio Code and [Node.js](https://nodejs.org/en/) v16.13.2.
+Follow these [contribution instructions](tutorial-Contribute.html) to configure your development environment.

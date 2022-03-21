@@ -54,6 +54,6 @@
 		"destination": "./docs/",
 		"recurse": true,
 		"tutorials": "./tutorials",
-		"readme": "./readme.md"
+		"readme": "./jsdoc.index.md"
 	}
 }
