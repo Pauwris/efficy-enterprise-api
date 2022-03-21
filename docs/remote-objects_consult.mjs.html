@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: remote-objects/consult.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: remote-objects/consult.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import RemoteAPI from '../remote-api.mjs';
+import RemoteObject from './remote-object.mjs';
+import DataSetList from './dataset/list.mjs';
+import {ParseGentle} from './utils/parsing.mjs';
+import DataSetObject from './dataset/dataset-object.mjs';
+
+/**
+ * Class returned by openConsultObject
+ * @extends RemoteObject
+ * @property {string} entity - The entity name of the consulted record
+ * @property {number} key - The key of the consulted record
+ * @property {number} consulthandle - The handle of the consult operation
+ * @property {object} data - The master, categories and detail objects available as properties of data
+ */
+class ConsultObject extends RemoteObject {
+	entity;
+	key;
+	consulthandle;
+	data;
+
+	/** @protected */
+	closecontext;
+
+	#otherFuncs;
+	#dataSetList;
+	#isDirty;
+
+	/**
+	 * Opens an consult context for the record identified by entity and key.
+	 * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+	 * @param {RemoteAPI} remoteAPI
+	 * @param {string} entity - The entity name of the consulted record, e.g. "Comp"
+	 * @param {number} key - The key of the consulted record
+	 * @param {number} [consultHandle] - Possibility to pass an existing consultHandle
+	 */
+	constructor(remoteAPI, entity, key, consultHandle) {
+		super(remoteAPI);
+		this.entity = entity;
+		this.key = ParseGentle.toFloatKey(key);
+		this.consulthandle = consultHandle;
+		this.#dataSetList = new DataSetList(remoteAPI);
+
+		this.#resetState();
+		this.#setDirty();
+	}
+
+	#resetState() {
+		this.closecontext = null;
+		this.#otherFuncs = [];
+
+		this.#dataSetList.resetState();
+		this.#isDirty = false;
+	}
+	#setDirty() {
+		if (this.#isDirty) return;
+		this.api.registerObject(this);
+		this.#isDirty = true;
+	}
+
+	/**
+	 * Retrieves a master [DatasetObject]{@link Dataset.html} from the consult context.
+	 * @returns {DataSetObject}
+	 */
+	getMasterDataSet() {
+		this.#setDirty();
+		return this.#dataSetList.getMasterDataSet();
+	}
+
+	/**
+	 * Retrieves the [DataSet]{@link Dataset.html} for category categoryName. Can be null when the category is not available to the current user.
+	 * @param {string} categoryName - name of the category, e.g. "DOCU$INVOICING"
+	 * @returns {DataSetObject}
+	 */
+	getCategoryDataSet(categoryName) {
+		this.#setDirty();
+		return this.#dataSetList.getCategoryDataSet(categoryName);
+	}
+
+	/**
+	 * Retrieves a relation [DataSet]{@link Dataset.html} for the specified detail in the edit context.
+	 * @param {string} detail - The detail name, e.g. "Comp"
+	 * @param {string} [filter=""] - SQL filter expression, e.g. "COMMENT like '%template%'"
+	 * @param {boolean} [includeBlobContent=false] - If true, blob fields (e.g. memo, stream) are returned
+	 * @returns {DataSetObject}
+	 */
+	getDetailDataSet(detail, filter = "", includeBlobContent = false) {
+		this.#setDirty();
+		return this.#dataSetList.getDetailDataSet(detail);
+	}
+
+	/**
+	 * Closes the context and frees the memory on the web server.
+	 */
+	closeContext() {
+		this.closecontext = true;
+		this.#setDirty();
+	}
+
+	/** @protected */
+	asJsonRpc() {
+		const requestObject = {
+			"#id": this.id,
+			"@name": "consult",
+			"@func": []
+		};
+
+		// lowercase properties are required for the case sensitive JSON RPC
+		["entity", "key", "consulthandle", "closecontext"].forEach(property => {
+			if (this[property] != null) requestObject[property] = this[property];
+		});
+
+		requestObject["@func"].push(...this.#dataSetList.funcs);
+		requestObject["@func"].push(...this.#otherFuncs);
+
+		return requestObject;
+	}
+
+	/** @protected */
+	afterExecute() {
+		super.afterExecute();
+
+		// lowercase properties are required for the case sensitive JSON RPC
+		["entity", "key", "consulthandle", "closecontext"].forEach(property => {
+			this[property] = this.responseObject[property];
+		});
+
+		this.#dataSetList.setResponseObject(this.responseObject);
+		this.#dataSetList.afterExecute();
+		this.#dataSetList.setData(this);
+
+		this.#resetState();
+	}
+}
+
+export default ConsultObject;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="WsObject.html">WsObject</a></li></ul><h3>Classes</h3><ul><li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
