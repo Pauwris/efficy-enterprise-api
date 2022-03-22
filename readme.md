@@ -1,4 +1,4 @@
-<img src="assets/efficy-crm-logo.svg" style="width:18rem">
+<img src="https://raw.githubusercontent.com/Pauwris/efficy-enterprise-api/master/assets/efficy-crm-logo.svg" style="width:18rem">
 
 # Efficy Enterprise API
 
