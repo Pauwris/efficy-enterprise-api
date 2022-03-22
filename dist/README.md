@@ -1,3 +1,5 @@
+<img src="assets/efficy-crm-logo.svg" style="width:18rem">
+
 # Efficy Enterprise API browser
 
 This is an auto-generated [rollup](https://rollupjs.org/guide/en/) bundled JS package of [efficy-enterprise-api](https://www.npmjs.com/package/efficy-enterprise-api) package for usage in the browser, more specific inside a Efficy Enterprise customization project.
@@ -33,3 +35,6 @@ await crm.executeBatch();
 // Debug output
 proposal.edithandle; // The editHandle number, can be used to open an edit page
 ```
+
+----------
+(2022) authored by Kristof Pauwels
