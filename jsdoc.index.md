@@ -1,16 +1,20 @@
+<img src="https://raw.githubusercontent.com/Pauwris/efficy-enterprise-api/master/assets/efficy-crm-logo.svg" style="width:18rem">
+
 # Efficy Enterprise API
 
 ## Introduction
 
 The Efficy Enterprise API is developed for server-side usage in a [Node.js](https://nodejs.org/en/) environment (e.g. for integrations) and also bundled for usage inside an Efficy browser session for client-side JSON RPC requests.
 
-In your Node.js project, first install the [efficy-enterprise-api](https://www.npmjs.com/package/efficy-enterprise-api) npm package.
+## Node.js instructions
 
+In your [Node.js](https://nodejs.org/en/) project, first install the [efficy-enterprise-api](https://www.npmjs.com/package/efficy-enterprise-api) npm package.
+
+**powershell**
 ```powershell
 npm i efficy-enterprise-api
 ```
 
-Inside [Node.js](https://nodejs.org/en/)
 ```javascript
 import { CrmEnv, CrmRpc} from "efficy-enterprise-api";
 
@@ -22,7 +26,16 @@ await crm.executeBatch();
 compSearch.items; // An array of row items
 ```
 
-Inside your Efficy Enterprise, running in the browser
+## Efficy in browser instructions
+
+Switch and use the [efficy-enterprise-api-browser](https://www.npmjs.com/package/efficy-enterprise-api-browser) npm package.
+
+**powershell**
+```powershell
+npm i efficy-enterprise-api-browser
+```
+Use [ES import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and not [AMD RequireJs](https://requirejs.org/docs/whyamd.html), to benefit from the [jsDoc](https://jsdoc.app/) instructions and intellisense in supporting IDE's such as Visual Studio Code.
+
 ```javascript
 const {CrmRpc} = await import('../../../node_modules/efficy-enterprise-api-browser/es.js');
 const crm = new CrmRpc();
@@ -41,6 +54,18 @@ await crm.executeBatch();
 proposal.edithandle; // The editHandle number, can be used to open an edit page
 ```
 
+## Intellisense
+
+Use [ES import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and not [AMD RequireJs](https://requirejs.org/docs/whyamd.html), to benefit from the [jsDoc](https://jsdoc.app/) instructions and [intellisense](https://code.visualstudio.com/docs/languages/javascript#_intellisense
+) in supporting IDE's such as Visual Studio Code.
+
+Methods on the general [CrmRpc](CrmRpc.html) object
+
+![](assets/intellisense2.PNG)
+
+Methods from [EditObject](EditObject.html)
+
+![](assets/intellisense1.PNG)
 
 ## Get started
 

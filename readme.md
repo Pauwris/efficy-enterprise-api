@@ -9,13 +9,13 @@ The Efficy Enterprise API is developed for server-side usage in a [Node.js](http
 
 ## Node.js instructions
 
-In your Node.js project, first install the [efficy-enterprise-api](https://www.npmjs.com/package/efficy-enterprise-api) npm package.
+In your [Node.js](https://nodejs.org/en/) project, first install the [efficy-enterprise-api](https://www.npmjs.com/package/efficy-enterprise-api) npm package.
 
+**powershell**
 ```powershell
 npm i efficy-enterprise-api
 ```
 
-Inside [Node.js](https://nodejs.org/en/)
 ```javascript
 import { CrmEnv, CrmRpc} from "efficy-enterprise-api";
 
@@ -29,7 +29,7 @@ compSearch.items; // An array of row items
 
 ## Efficy in browser instructions
 
-Switch and use the [efficy-enterprise-browser](https://www.npmjs.com/package/efficy-enterprise-api-browser) npm package.
+Switch and use the [efficy-enterprise-api-browser](https://www.npmjs.com/package/efficy-enterprise-api-browser) npm package.
 
 
 ## Get started
