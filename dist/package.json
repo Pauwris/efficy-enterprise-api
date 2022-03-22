@@ -2,7 +2,7 @@
 	"name": "efficy-enterprise-api-browser",
 	"description": "The Efficy Enterprise API bundled for usage inside an Efficy browser session for client-side JSON RPC requests.",
 	"main": "./efficy-enterprise-api-browser-es.js",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"homepage": "https://github.com/Pauwris/efficy-enterprise-api#readme",
 	"keywords": [
 		"Efficy",
