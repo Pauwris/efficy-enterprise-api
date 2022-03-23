@@ -2100,13 +2100,13 @@ class CrmRpc extends RemoteAPI {
 	}
 
 	/**
-	 * Opens a consult context for the Entity.
+	 * Opens a consult context for the record identified by entity and key.
 	 * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
 	 * @param {string} entity - The entity name, e.g. "Comp"
 	 * @param {number} key - The key of the record. Use key = 0 to create a new record.
 	 * @returns {ConsultObject}
 	 * @example
-	 * const comp = crm.openConsultContext("comp", 2);
+	 * const comp = crm.openConsultObject("comp", 2);
 	 * const dsComp = comp.getMasterDataSet();
 	 * const dsCompAddress = comp.getCategoryDataSet("COMP$ADDRESS");
 	 * const linkedContacts = comp.getDetailDataSet("cont");
@@ -2115,7 +2115,7 @@ class CrmRpc extends RemoteAPI {
 	 * comp.closeContext();
 	 * await crm.executeBatch();
 	 */
-	openConsultContext(entity, key) {
+	openConsultObject(entity, key) {
 		return new ConsultObject(this, entity, key);
 	}
 

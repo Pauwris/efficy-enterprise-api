@@ -107,7 +107,7 @@ async function singleThreadUnitTest() {
 	attach.closingCommit();
 	await crm.executeBatch();
 
-	const comp = crm.openConsultContext("comp", 2);
+	const comp = crm.openConsultObject("comp", 2);
 	const dsComp = comp.getMasterDataSet();
 	const dsCompAddress = comp.getCategoryDataSet("COMP$ADDRESS");
 	await crm.executeBatch();

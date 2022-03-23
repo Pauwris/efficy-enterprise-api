@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Edit new proposal.html">Edit new proposal</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
+					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
 				</ul>
 			</li>
 			
@@ -3347,7 +3347,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="openConsultContext"><span class="type-signature"></span>openConsultContext(entity, key)</h4>
+    <h4 class="name" id="openConsultObject"><span class="type-signature"></span>openConsultObject(entity, key)</h4>
     
     
 </dt>
@@ -3355,7 +3355,7 @@
 
     
     <div class="description">
-        Opens a consult context for the Entity.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+        Opens a consult context for the record identified by entity and key.A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
     </div>
     
 
@@ -3525,7 +3525,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">const comp = crm.openConsultContext(&quot;comp&quot;, 2);const dsComp = comp.getMasterDataSet();const dsCompAddress = comp.getCategoryDataSet(&quot;COMP$ADDRESS&quot;);const linkedContacts = comp.getDetailDataSet(&quot;cont&quot;);await crm.executeBatch();const companyNames = [comp.data.master.NAME, comp.data.category[&quot;COMP$ADDRESS&quot;].NAME];comp.closeContext();await crm.executeBatch();</pre>
+    <pre class="sunlight-highlight-javascript">const comp = crm.openConsultObject(&quot;comp&quot;, 2);const dsComp = comp.getMasterDataSet();const dsCompAddress = comp.getCategoryDataSet(&quot;COMP$ADDRESS&quot;);const linkedContacts = comp.getDetailDataSet(&quot;cont&quot;);await crm.executeBatch();const companyNames = [comp.data.master.NAME, comp.data.category[&quot;COMP$ADDRESS&quot;].NAME];comp.closeContext();await crm.executeBatch();</pre>
 
 
     

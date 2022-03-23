@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="tutorials.list.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Edit new proposal.html">Edit new proposal</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
+					<li><a href="tutorial-Contribute.html">Contribute</a></li><li><a href="tutorial-CRM Environment.html">CRM Environment</a></li><li><a href="tutorial-Execute Queries and Searches.html">Execute Queries and Searches</a></li><li><a href="tutorial-Insert document.html">Insert document</a></li>
 				</ul>
 			</li>
 			
@@ -104,6 +104,11 @@
 </code></pre>
 <pre class="prettyprint source lang-javascript"><code>import { CrmEnv, CrmRpc} from &quot;efficy-enterprise-api&quot;;
 
+const crmEnv = new CrmEnv({
+	&quot;url&quot;: &quot;https://mycompany.efficy.cloud/&quot;,
+	&quot;apiKey&quot;: &quot;{Create API key in Designer}&quot;
+});
+
 const crm = new CrmRpc(crmEnv); // See CrmEnv class
 const compSearch = crm.search(&quot;comp&quot;, &quot;SEARCHFAST&quot;, &quot;Efficy&quot;);
 await crm.executeBatch();
@@ -112,26 +117,61 @@ await crm.executeBatch();
 compSearch.items; // An array of row items
 </code></pre>
 <h2>Efficy in browser instructions</h2>
+<p>Consider reading this Efficy Project Guide about using the <a href="https://help.efficy.io/edn/projectguides/efficy-enterprise-api-browser">Efficy Enterprise API - for browser</a></p>
 <p>Switch and use the <a href="https://www.npmjs.com/package/efficy-enterprise-api-browser">efficy-enterprise-api-browser</a> npm package.</p>
 <p><strong>powershell</strong></p>
 <pre class="prettyprint source lang-powershell"><code>npm i efficy-enterprise-api-browser
 </code></pre>
 <p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">ES import</a> and not <a href="https://requirejs.org/docs/whyamd.html">AMD RequireJs</a>, to benefit from the <a href="https://jsdoc.app/">jsDoc</a> instructions and intellisense in supporting IDE's such as Visual Studio Code.</p>
-<pre class="prettyprint source lang-javascript"><code>const {CrmRpc} = await import('../../../node_modules/efficy-enterprise-api-browser/es.js');
-const crm = new CrmRpc();
+<pre class="prettyprint source lang-javascript"><code>async function editNewDocu() {
+	const {CrmRpc} = await import('../../../node_modules/efficy-enterprise-api-browser/es.js');
+	const crm = new CrmRpc();
 
-const proposal = crm.openEditObject(&quot;docu&quot;, 0);
-proposal.updateFields({
-	&quot;NAME&quot;: &quot;Non committed proposal&quot;,
-	&quot;MEMO&quot;: &quot;Line1\nLine2&quot;
-});
-proposal.insertDetail(&quot;Oppo&quot;, Model(&quot;key&quot;));
-proposal.insertDetail(&quot;Comp&quot;, Model(&quot;K_COMPANY&quot;));
-proposal.insertDetail(&quot;Cont&quot;, Model(&quot;K_CONTACT&quot;));
-await crm.executeBatch();
+	// Get all products of the Opportunity, using the consultHandle available in the page Model object.
+	// This is faster then crm.openConsultObject(&quot;Oppo&quot;, Model(&quot;key&quot;));
+	const opportunity = crm.getConsultObject(Model(&quot;consultHandle&quot;), &quot;Oppo&quot;);
+	const oppoProds = opportunity.getDetailDataSet(&quot;Prod&quot;);
+	await crm.executeBatch();
 
-// Debug output
-proposal.edithandle; // The editHandle number, can be used to open an edit page
+	// Create a new Document
+	const invoiceDocu = crm.openEditObject(&quot;docu&quot;, 0);
+
+	// Set master and category fields
+	invoiceDocu.updateFields({
+		&quot;NAME&quot;: &quot;Non committed invoice&quot;
+	});
+	invoiceDocu.activateCategory(&quot;DOCU$INVOICING&quot;);
+	invoiceDocu.updateCategoryFields(&quot;DOCU$INVOICING&quot;, {
+		&quot;D_INVOICE&quot;: moment().format(Model('shortDateFormat')), // Now
+		&quot;TYPE&quot;: 1 // Manual invoice
+	});
+
+	// Link the main details of the Opportunity
+	invoiceDocu.insertDetail(&quot;Oppo&quot;, Model(&quot;key&quot;));
+	invoiceDocu.insertDetail(&quot;Comp&quot;, Model(&quot;K_COMPANY&quot;));
+	invoiceDocu.insertDetail(&quot;Cont&quot;, Model(&quot;K_CONTACT&quot;));
+
+	// Insert each product from the Opportunity on the invoice
+	oppoProds.items.forEach(oppoProd => {
+		invoiceDocu.insertDetail(&quot;Prod&quot;, oppoProd[&quot;K_PRODUCT&quot;]);
+		invoiceDocu.updateDetail(&quot;Prod&quot;, 0, {
+			&quot;QUANTITY&quot;: oppoProd[&quot;QUANTITY&quot;],
+			&quot;PRICE&quot;: oppoProd[&quot;PRICE&quot;],
+			&quot;DISCOUNT&quot;: oppoProd[&quot;DISCOUNT&quot;],
+			&quot;VAT&quot;: oppoProd[&quot;VAT&quot;],
+			&quot;TOTAL&quot;: oppoProd[&quot;TOTAL&quot;]
+		});
+	})
+
+	// Note that we do not commit! All queued operations are now sent to the server
+	await crm.executeBatch();
+
+	// With the returned editHandle, the edit dialog is opened!
+	var url = `edit?page=edit/edit&entity=docu&action=refreshOpener&edithandle=${invoiceDocu.edithandle}`,
+		options = {url: url, width: 640, height: 640, name: 'edit_docu'};
+
+	WindowManager.open('dialog', options);
+}
 </code></pre>
 <h2>Intellisense</h2>
 <p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">ES import</a> and not <a href="https://requirejs.org/docs/whyamd.html">AMD RequireJs</a>, to benefit from the <a href="https://jsdoc.app/">jsDoc</a> instructions and <a href="https://code.visualstudio.com/docs/languages/javascript#_intellisense">intellisense</a> in supporting IDE's such as Visual Studio Code.</p>
@@ -145,12 +185,12 @@ proposal.edithandle; // The editHandle number, can be used to open an edit page
 <ol>
 <li><a href="tutorial-CRM%20Environment.html">How to configure your CRM environment</a></li>
 <li><a href="tutorial-Insert%20document.html">How to insert a document with relations, categories and reference</a></li>
-<li><a href="tutorial-Edit%20new%20proposal.html">How to edit and open new non-committed Proposal</a></li>
 <li><a href="tutorial-Execute%20Queries%20and%20Searches.html">How to execute Queries and Searches</a></li>
 </ol>
 <h2>Contribute</h2>
 <p>The Efficy Enterprise API is developed with Visual Studio Code and <a href="https://nodejs.org/en/">Node.js</a> v16.13.2.
-Follow these <a href="tutorial-Contribute.html">contribution instructions</a> to configure your development environment.</p></article>
+Follow these <a href="tutorial-Contribute.html">contribution instructions</a> to configure your development environment.</p>
+<p>The sources are available on <a href="https://github.com/Pauwris/efficy-enterprise-api">github.com/Pauwris/efficy-enterprise-api</a></p></article>
     </section>
 
 

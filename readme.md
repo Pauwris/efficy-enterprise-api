@@ -29,7 +29,7 @@ compSearch.items; // An array of row items
 
 ## Efficy in browser instructions
 
-Switch and use the [efficy-enterprise-api-browser](https://www.npmjs.com/package/efficy-enterprise-api-browser) npm package.
+Switch and use the [efficy-enterprise-api-browser](https://www.npmjs.com/package/efficy-enterprise-api-browser) npm package. Consider reading this Efficy Project Guide about using the [Efficy Enterprise API - for browser](https://help.efficy.io/edn/projectguides/efficy-enterprise-api-browser).
 
 
 ## Get started
