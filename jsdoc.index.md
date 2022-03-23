@@ -82,3 +82,5 @@ Learn the available public [CrmRpc](CrmRpc.html) methods and properties
 
 The Efficy Enterprise API is developed with Visual Studio Code and [Node.js](https://nodejs.org/en/) v16.13.2.
 Follow these [contribution instructions](tutorial-Contribute.html) to configure your development environment.
+
+The sources are available on [github.com/Pauwris/efficy-enterprise-api](https://github.com/Pauwris/efficy-enterprise-api)
