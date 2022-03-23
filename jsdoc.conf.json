@@ -36,6 +36,7 @@
 		"systemName": "Efficy Enterprise API",
 		"footer": "Efficy Enterprise API for Node.js and browser",
 		"copyright": "Created by Kristof Pauwels",
+		"includeDate": false,
 		"navType": "vertical",
 		"theme": "cosmo",
 		"linenums": true,

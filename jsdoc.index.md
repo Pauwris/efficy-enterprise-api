@@ -61,11 +61,11 @@ Use [ES import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 Methods on the general [CrmRpc](CrmRpc.html) object
 
-![](assets/intellisense2.PNG)
+![](https://raw.githubusercontent.com/Pauwris/efficy-enterprise-api/master/assets/intellisense1.PNG)
 
 Methods from [EditObject](EditObject.html)
 
-![](assets/intellisense1.PNG)
+![](https://raw.githubusercontent.com/Pauwris/efficy-enterprise-api/master/assets/intellisense2.PNG)
 
 ## Get started
 
