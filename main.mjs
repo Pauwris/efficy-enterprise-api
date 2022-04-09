@@ -92,6 +92,11 @@ async function singleThreadUnitTest() {
 	const files = attach.getDetailDataSet("file");
 	await crm.executeBatch();
 
+	const document = crm.openEditObject("docu", 0);
+	await crm.executeBatch();
+	const dsFiles = document.getDetailDataSet("file", "", false);
+	await crm.executeBatch();
+
 	const file = files.item;
 	// @ts-ignore
 	const attachment = await attach.getAttachment(file.K_FILE, file.VERSION);
