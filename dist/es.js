@@ -1568,7 +1568,7 @@ class ConsultObject extends RemoteObject {
 	 */
 	getDetailDataSet(detail, filter = "", includeBlobContent = false) {
 		this.#setDirty();
-		return this.#dataSetList.getDetailDataSet(detail);
+		return this.#dataSetList.getDetailDataSet(detail, filter, includeBlobContent);
 	}
 
 	/**
@@ -2385,6 +2385,19 @@ class CrmRpc extends RemoteAPI {
 			linked: 2,
 			remote: 4,
 			large: 5
+		},
+		access_code: {
+			search: 1,
+			read: 2,
+			write: 4,
+			delete: 8,
+			showcontent: 16,
+			addcontent: 32,
+			modifycontent: 64,
+			deletecontent: 128,
+			secure: 256,
+			securecontent: 512,
+			nocontent: 2048
 		}
 	}
 }

@@ -164,7 +164,7 @@ class ConsultObject extends RemoteObject {
 	 */
 	getDetailDataSet(detail, filter = "", includeBlobContent = false) {
 		this.#setDirty();
-		return this.#dataSetList.getDetailDataSet(detail);
+		return this.#dataSetList.getDetailDataSet(detail, filter, includeBlobContent);
 	}
 
 	/**

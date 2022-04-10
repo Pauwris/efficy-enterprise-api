@@ -47,9 +47,11 @@ Example on how to customze rollup.config.js to generate a minified JS bundle
 With jsDoc, we generate the documentation and tutorials you current are reading!
 The jsDoc generation configuration in JSON format: [jsdoc.conf.json](jsdoc.conf.json).
 
+For the compile, we use templates
 ```powershell
 jsdoc --configure jsdoc.conf.json --template ./node_modules/ink-docstrap/template
 ```
+
 
 ## Publish package to npm
 
