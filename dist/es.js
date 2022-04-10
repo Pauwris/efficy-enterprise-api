@@ -2396,6 +2396,7 @@ class CrmRpc extends RemoteAPI {
 			modifycontent: 64,
 			deletecontent: 128,
 			secure: 256,
+			fullcontrol: 271,
 			securecontent: 512,
 			nocontent: 2048
 		}
