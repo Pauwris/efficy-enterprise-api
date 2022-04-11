@@ -93,8 +93,9 @@ async function singleThreadUnitTest() {
 	await crm.executeBatch();
 
 	const document = crm.openEditObject("docu", 0);
+	document.insertAttachment(crm.constants.file_type.embedded, "dummy");
 	await crm.executeBatch();
-	const dsFiles = document.getDetailDataSet("file", "", false);
+	const dsFiles = document.getDetailDataSet("file", "", true);
 	await crm.executeBatch();
 
 	const file = files.item;
