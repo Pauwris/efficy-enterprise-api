@@ -122,6 +122,26 @@ async function singleThreadUnitTest() {
 	const linkedContacts = compCopy.getDetailDataSet("cont");
 	compCopy.closeContext();
 
+	const contComp = crm.openEditRelationObject("comp", "cont", 2, 5);
+	contComp.updateFields({
+		"JOBTITLE": "CrmRpc tester"
+	})
+	contComp.closingCommit();
+
+	const contCont = crm.openEditRelationObject("cont", "cont", 5, 6);
+	contCont.updateField("RELATION", 1);
+	contCont.updateReciprocityField("RELATION", 2);
+	contCont.commitChanges();
+	const dsContCont = contCont.getMasterDataSet();
+	const dsContCont1 = contCont.getMasterDataSet(1);
+	await crm.executeBatch();
+	if (!dsContCont.item["RELATION"] || dsContCont.item["RELATION"] === dsContCont1.item["RELATION"]) throw Error("Not OK");
+	contCont.closingCommit();
+
+	const oppoProd = crm.openEditRelationObject("oppo", "prod", 2, 3, 339180511);
+	oppoProd.updateField("PRICE", -3.1415);
+	oppoProd.closingCommit();
+
 	const docu = crm.openEditObject("docu", 0);
 	docu.updateField("NAME", "Jan");
 	docu.insertDetail("Comp", 2);
@@ -199,6 +219,9 @@ async function singleThreadUnitTest() {
 	console.log(JSON.stringify(comp));
 	console.log(JSON.stringify(dsComp.item));
 	console.log(JSON.stringify(dsCompAddress.item));
+
+	console.log(dsContCont.item["R_RELATION"]);
+	console.log(dsContCont1.item["R_RELATION"]);
 
 	console.log(JSON.stringify(docu));
 	console.log(JSON.stringify(task));

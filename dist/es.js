@@ -692,6 +692,7 @@ class RemoteObject {
 class DataSet {
 	name;
 	type;
+	tableView;
 
 	#items;
 	#item;
@@ -735,10 +736,11 @@ class DataSet {
 
 	get func() {
 		const func = {};
-		func["@name"] = this.type;
 
+		func["@name"] = this.type;
 		if (this.name) func[this.type] = this.name;
 		if (this.filter) func["filter"] = this.filter;
+		if (this.tableView > 0) func["tableview"] = this.tableView;
 		if (this.includeBlobContent) func["includeblobcontent"] = true;
 
 		return func;
@@ -794,6 +796,7 @@ class DataSetObject extends RemoteObject {
  */
 class DataSetList extends RemoteObject {
 	#master;
+	#master1;
 	#tableView;
 
 	constructor(remoteAPI) {
@@ -805,9 +808,18 @@ class DataSetList extends RemoteObject {
 	 * Retrieves a master [DataSet]{@link Dataset.html} from the edit context.
 	 * @returns {DataSetObject}
 	 */
-	getMasterDataSet() {
+	getMasterDataSet(masterView = 0) {
 		// @ts-ignore: for simplicity, we only document DataSetObject and not the type
-		return this.#master = new DataSet("master");
+		//return this.#master = new DataSet("master");
+
+		if (masterView > 0) {
+			this.#master1 = new DataSet("master");
+			this.#master1.tableView = 1;
+			return this.#master1;
+		} else {
+			this.#master = new DataSet("master");
+			return this.#master;
+		}
 	}
 
 	/**
@@ -840,6 +852,7 @@ class DataSetList extends RemoteObject {
 
 	resetState() {
 		this.#master = null;
+		this.#master1 = null;
 		this.#tableView = {
 			category: {},
 			detail: {}
@@ -850,6 +863,7 @@ class DataSetList extends RemoteObject {
 		const array = [];
 
 		this.#master && array.push(this.#master.func);
+		this.#master1 && array.push(this.#master1.func);
 
 		Object.keys(this.#tableView).forEach(tvName => {
 			const tableView = this.#tableView[tvName];
@@ -864,6 +878,7 @@ class DataSetList extends RemoteObject {
 
 	afterExecute() {
 		this.#master && this.#setDsoItems(this.#master);
+		this.#master1 && this.#setDsoItems(this.#master1);
 
 		Object.keys(this.#tableView).forEach(listName => {
 			const tableView = this.#tableView[listName];
@@ -883,6 +898,7 @@ class DataSetList extends RemoteObject {
 	setData(target) {
 		target.data = {};
 		target.data.master = this.#master?.item;
+		target.data.master1 = this.#master1?.item;
 
 		Object.keys(this.#tableView).forEach(listName => {
 			const tableView = this.#tableView[listName];
@@ -894,8 +910,15 @@ class DataSetList extends RemoteObject {
 	}
 
 	#setDsoItems(dso) {
+		var array;
+
 		if (dso instanceof DataSet === false) throw new TypeError("DataSetList.setDsoItems::dso is not an DataSet type");
-		const array = this.api.findFuncArray2(this.responseObject, dso.type, dso.type, dso.name);
+		if (dso.tableView > 0) {
+			array = this.api.findFuncArray2(this.responseObject, dso.type, "tableview", dso.tableView);
+		} else {
+			array = this.api.findFuncArray2(this.responseObject, dso.type, dso.type, dso.name);
+		}
+
 		dso.setItems(array);
 	}
 }
@@ -1010,11 +1033,11 @@ class EditObject extends RemoteObject {
 	 * Opens an edit context for the record identified by entity and key.
 	 * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
 	 * @param {RemoteAPI} remoteAPI
+	 * @param {number} editHandle - Possibility to pass an existing editHandle
 	 * @param {string} entity - The entity name, e.g. "Comp"
 	 * @param {number} [key=0] - The key of the record. Use key = 0 to create a new record
-	 * @param {number} [editHandle] - Possibility to pass an existing editHandle
 	 */
-	constructor(remoteAPI, entity, key, editHandle) {
+	constructor(remoteAPI, editHandle, entity, key) {
 		super(remoteAPI);
 		this.entity = entity;
 		this.key = ParseGentle.toFloatKey(key);
@@ -1615,6 +1638,212 @@ class ConsultObject extends RemoteObject {
 }
 
 /**
+ * Constructed class Returned by RemoteObjects.openEditRelationObject
+ * @extends RemoteObject
+ * @property {string} entity - The entity name
+ * @property {number} key - The key of the entity record
+ * @property {string} detail - The detail name
+ * @property {number} detailkey - The key of the detail record
+ * @property {number} edithandle - The handle of the edit operation
+ * @property {boolean} inserted - True when record is newly inserted in the DB
+ * @property {object} data
+ */
+class EditRelationObject extends RemoteObject {
+	entity;
+	detail;
+	key;
+	detailkey;
+	edithandle;
+	data;
+
+	/** @protected */
+	commit;
+	/** @protected */
+	closecontext;
+	/** @protected */
+	inserted;
+
+	#masterData;
+	#master1Data;
+	#otherFuncs;
+	#dataSetList;
+
+	#isDirty;
+
+	/**
+	 * Opens an edit context for a relation. If the relation does not yet exist, it is created.
+	 * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+	 * @param {RemoteAPI} remoteAPI
+	 * @param {number} editHandle - Possibility to pass an existing editHandle
+	 * @param {string} entity - The entity name, e.g. "Comp"
+	 * @param {string} detail - The detail name, e.g. "Cont"
+	 * @param {number} key - The key of the entity
+	 * @param {number} detailKey - The key of the detail
+	 * @param {number} [relationId] - The key of the relation if multi-relation is available
+	 */
+	constructor(remoteAPI, editHandle, entity, detail, key, detailKey, relationId) {
+		super(remoteAPI);
+		this.entity = entity;
+		this.detail = detail;
+		this.key = ParseGentle.toFloatKey(key);
+		this.detailkey = ParseGentle.toFloatKey(detailKey);
+		this.relationId = ParseGentle.toFloatKey(relationId);
+		this.#dataSetList = new DataSetList(remoteAPI);
+
+		this.inserted = (this.key === 0);
+		this.edithandle = editHandle;
+
+		if (this.relationId != null) {
+			this.detailkey = [this.detailkey, this.relationId].join("_");
+		}
+
+		this.#resetState();
+		this.#setDirty();
+	}
+
+	#resetState() {
+		this.commit = null;
+		this.closecontext = null;
+		this.inserted = null;
+		this.#masterData = {};
+		this.#master1Data = {};
+		this.#otherFuncs = [];
+
+		this.#dataSetList.resetState();
+		this.#isDirty = false;
+	}
+	#setDirty() {
+		if (this.#isDirty) return;
+		this.api.registerObject(this);
+		this.#isDirty = true;
+	}
+
+	/**
+	 * Retrieves a master [DataSet]{@link Dataset.html} from the edit context.
+	 * @param {number} [tableView=0]
+	 * @returns {DataSetObject}
+	 */
+	getMasterDataSet(tableView = 0) {
+		this.#setDirty();
+		return this.#dataSetList.getMasterDataSet(tableView);
+	}
+
+	/**
+	 * Updates the field values of a master data set
+	 * @param {string} name
+	 * @param {string|number} value
+	 */
+	updateField(name, value) {
+		ParseHard.isFieldValue(value);
+		this.#masterData[name] = value;
+		this.#setDirty();
+	}
+	/**
+	 * Updates the field values of a master data set.
+	 * @param {object} fieldsObj - e.g. {"OPENED": "0"}
+	 */
+	updateFields(fieldsObj) {
+		Object.assign(this.#masterData, ParseGentle.fieldsObj(fieldsObj));
+		this.#setDirty();
+	}
+
+	/**
+	 * Updates the field values of a reciprocity table view, e.g. CONT_CONT.RELATION of the 2nd record
+	 * @param {string} name
+	 * @param {string|number} value
+	 */
+	updateReciprocityField(name, value) {
+		ParseHard.isFieldValue(value);
+		this.#master1Data[name] = value;
+		this.#setDirty();
+	}
+	/**
+	 * Updates the field values of a reciprocity table view, e.g. CONT_CONT.RELATION of the 2nd record
+	 * @param {object} fieldsObj - e.g. {"OPENED": "0"}
+	 */
+	updateReciprocityFields(fieldsObj) {
+		Object.assign(this.#master1Data, ParseGentle.fieldsObj(fieldsObj));
+		this.#setDirty();
+	}
+
+	/**
+	 * Commits the changes to the database.
+	 */
+	commitChanges() {
+		this.commit = true;
+		this.#setDirty();
+	}
+
+	/**
+	 * Closes the context and frees the memory on the web server.
+	 */
+	closeContext() {
+		this.closecontext = true;
+		this.#setDirty();
+	}
+
+	/**
+	 * Commits the changes, releases the record and executes closeContext
+	 */
+	closingCommit() {
+		this.commit = true;
+		this.closecontext = true;
+		this.#setDirty();
+	}
+
+	/** @protected */
+	asJsonRpc() {
+		const requestObject = {
+			"#id": this.id,
+			"@name": "edit",
+			"@func": []
+		};
+
+		// lowercase properties are required for the case sensitive JSON RPC
+		["entity", "detail", "key", "detailkey", "edithandle", "commit", "closecontext"].forEach(property => {
+			if (this[property] != null) requestObject[property] = this[property];
+		});
+
+		requestObject["@func"].push(...this.#otherFuncs);
+		requestObject["@func"].push(...this.#dataSetList.funcs);
+
+		if (typeof this.#masterData === "object" && Object.keys(this.#masterData).length > 0) {
+			requestObject["@func"].push({
+				"@name": "update",
+				"tableview": 0,
+				"@data": this.#masterData
+			});
+		}
+
+		if (typeof this.#master1Data === "object" && Object.keys(this.#master1Data).length > 0) {
+			requestObject["@func"].push({
+				"@name": "update",
+				"tableview": 1,
+				"@data": this.#master1Data
+			});
+		}
+
+		return requestObject;
+	}
+
+	/** @protected */
+	afterExecute() {
+		super.afterExecute();
+
+		// lowercase properties are required for the case sensitive JSON RPC
+		["entity", "detail", "key", "detailkey", "edithandle", "commit", "closecontext"].forEach(property => {
+			this[property] = this.responseObject[property];
+		});
+
+		this.#dataSetList.setResponseObject(this.responseObject);
+		this.#dataSetList.afterExecute();
+		this.#dataSetList.setData(this);
+
+		this.#resetState();
+	}
+}
+
+/**
  * Class returned by search operations
  * @extends DataSetObject
  * @property {array} items - The to array-converted DataSet. Only available after executeBatch()
@@ -2160,7 +2389,33 @@ class CrmRpc extends RemoteAPI {
 	 * await crm.executeBatch();
 	 */
 	openEditObject(entity, key = 0) {
-		return new EditObject(this, entity, key);
+		return new EditObject(this, null, entity, key);
+	}
+
+	/**
+	 * Opens an edit context for a relation. If the relation does not yet exist, it is created.
+	 * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
+	 * @param {string} entity - The entity name, e.g. "Comp"
+	 * @param {string} detail - The detail name, e.g. "Cont"
+	 * @param {number} key - The key of the entity
+	 * @param {number} detailKey - The key of the detail
+	 * @param {number} [relationId] - The key of the relation if multi-relation is available
+	 * @returns {EditRelationObject}
+	 * @example
+	 * const contCont = crm.openEditRelationObject("cont", "cont", 5, 6);
+	 * contCont.updateField("RELATION", 1);
+	 * contCont.updateReciprocityField("RELATION", 2);
+	 * contCont.commitChanges();
+	 * const dsContCont = contCont.getMasterDataSet();
+	 * const dsContCont1 = contCont.getMasterDataSet(1);
+	 * await crm.executeBatch();
+	 * console.log(dsContCont.item["R_RELATION"]);
+	 * console.log(dsContCont1.item["R_RELATION"]);
+	 * contCont.closingCommit();
+	 * await crm.executeBatch();
+	 */
+	openEditRelationObject(entity, detail, key, detailKey, relationId) {
+		return new EditRelationObject(this, null, entity, detail, key, detailKey, relationId);
 	}
 
 	/**
@@ -2168,7 +2423,15 @@ class CrmRpc extends RemoteAPI {
 	 * @param {number} editHandle
 	 */
 	getEditObject(editHandle) {
-		return new EditObject(this, "", 0, editHandle);
+		return new EditObject(this, editHandle, "", 0);
+	}
+
+	/**
+	 * Create and return an EditObject based on an existing editHandle
+	 * @param {number} editHandle
+	 */
+	getEditRelationObject(editHandle) {
+		return new EditRelationObject(this, editHandle, "", "", 0, 0);
 	}
 
 	/**

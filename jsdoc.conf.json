@@ -12,6 +12,7 @@
 			"./lib/remote-objects/api.mjs",
 			"./lib/remote-objects/consult.mjs",
 			"./lib/remote-objects/edit.mjs",
+			"./lib/remote-objects/edit-relation.mjs",
 			"./lib/ws-objects/ws-object.mjs",
 			"./readme.md"
 		],

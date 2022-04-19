@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li><li><a href="WsObject.html">WsObject</a></li>
+					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="EditRelationObject.html">EditRelationObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li><li><a href="WsObject.html">WsObject</a></li>
 				</ul>
 			</li>
 			
@@ -120,11 +120,11 @@ class EditObject extends RemoteObject {
 	 * Opens an edit context for the record identified by entity and key.
 	 * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
 	 * @param {RemoteAPI} remoteAPI
+	 * @param {number} editHandle - Possibility to pass an existing editHandle
 	 * @param {string} entity - The entity name, e.g. "Comp"
 	 * @param {number} [key=0] - The key of the record. Use key = 0 to create a new record
-	 * @param {number} [editHandle] - Possibility to pass an existing editHandle
 	 */
-	constructor(remoteAPI, entity, key, editHandle) {
+	constructor(remoteAPI, editHandle, entity, key) {
 		super(remoteAPI);
 		this.entity = entity;
 		this.key = ParseGentle.toFloatKey(key)
