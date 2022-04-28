@@ -31,5 +31,11 @@
 		"typescript": "^4.6.3"
 	},
 	"type": "module",
-	"types": "./@types/index.d.ts"
+	"types": "./@types/index.d.mts",
+	"exports": {
+		".": {
+			"types": "./@types/index.d.mts",
+			"import": "./lib/index.mjs"
+		}
+	}
 }
