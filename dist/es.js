@@ -65,7 +65,6 @@ class CrmEnv {
 	}
 
 	#validate() {
-		if (!this.#isValidHttpUrl(this.url)) throw new TypeError(`${this.#name}.validate::url is not valid`);
 		if (!this.#isEfficy && !this.user && !this.apiKey) throw new TypeError(`${this.#name}.validate::apiKey or user are not specified`);
 	}
 
@@ -118,18 +117,6 @@ class CrmEnv {
 	 */
 	get shortSessionId() {
 		return this.sessionId.split("-")[0];
-	}
-
-	#isValidHttpUrl(string) {
-		let url;
-
-		try {
-			url = new URL(string);
-		} catch (_) {
-			return false;
-		}
-
-		return url.protocol === "http:" || url.protocol === "https:";
 	}
 }
 
