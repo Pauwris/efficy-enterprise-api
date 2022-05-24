@@ -4,7 +4,7 @@
 class CrmEnv {
 	#name = "CrmEnv";
 	#isNode = (typeof process !== "undefined" && process?.versions?.node ? true : false);
-	#isEfficy = typeof window === "object";
+	#isEfficy = false;
 
 	/**
 	 * Create a Crm Environment. Set null when executed from browser
@@ -26,8 +26,8 @@ class CrmEnv {
 	constructor(env) {
 		if (typeof env === "object") {
 			this.setEnv(env);
-		}
-		if (this.#isEfficy) {
+		} else {
+			this.#isEfficy = true;
 			this.setEnv({
 				url: window.location.origin
 			});
@@ -132,6 +132,8 @@ class CrmEnv {
 		return url.protocol === "http:" || url.protocol === "https:";
 	}
 }
+
+var nodeFetch = {};
 
 /*
 The MIT License (MIT)
@@ -430,15 +432,6 @@ class RemoteAPI {
 	async post(requestObject) {
 		var response, responseBody, responseObject;
 
-		// switch between native browser and node.js
-		if (typeof fetch !== "function") {
-			var nodeLib = await import('node-fetch');
-			if (nodeLib) {
-				// @ts-ignore
-				global.fetch = nodeLib.default;
-			}
-		}
-
 		try {
 			const request = Object.assign(this.#fetchOptions, {body: JSON.stringify(requestObject)});
 			const requestUrl = `${this.crmEnv.url}/crm/json${this.crmEnv.customer ? "?customer=" + encodeURIComponent(this.crmEnv.customer) : ""}`;
@@ -463,8 +456,7 @@ class RemoteAPI {
 			rql.setResponse(response, responseObject);
 			rql.exception = this.getRpcException(responseObject);
 
-			if (!this.crmEnv.isEfficy) {
-				// @ts-ignore
+			if (typeof response.headers.raw === "function") {
 				const cookies = parse(response.headers.raw()['set-cookie']);
 				if (cookies.length > 0) {
 					this.crmEnv.cookies = cookies;
@@ -608,6 +600,14 @@ class RequestLog {
 
 		return data;
 	}
+}
+/*
+ * Platform agnostic solution for the definition of fetch. Lib node-fetch is excluded by rollup ignore plugin
+ */
+const isNode = (typeof process !== "undefined" && process?.versions?.node ? true : false);
+if (isNode) {
+	// @ts-ignore
+	globalThis.fetch = nodeFetch;
 }
 
 function uuidv4() {

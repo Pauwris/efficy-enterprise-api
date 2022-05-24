@@ -1,5 +1,4 @@
-import { version } from './package.json';
-import { terser } from 'rollup-plugin-terser';
+import ignore from 'rollup-plugin-ignore';
 
 export default [
 	{
@@ -9,7 +8,8 @@ export default [
 				file: 'dist/es.js',
 				format: 'es'
 			}
-		]
+		],
+		plugins: [ignore(["node-fetch"])],
 	}
 ];
 

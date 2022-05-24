@@ -9,14 +9,12 @@ npm install --save-dev --global jsdoc
 npm install --save-dev --global rollup
 ```
 
-We can use [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser) to minify generated es bundle, the dist files with `.min.js` extensions.
-
 [DocStrap](https://www.npmjs.com/package/ink-docstrap) is Bootstrap based template for JSDoc3. In addition, it includes all of the themes from Bootswatch giving you a great deal of look and feel options for your documentation, along with a **simple search**. Additionally, it adds some options to the conf.json file that gives you even more flexibility to tweak the template to your needs. It will also make your teeth whiter.
 
 We create [.d.ts Files from.js files](https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html), this set up means you can own the editor experience of TypeScript-powered editors without porting your project to TypeScript, or having to maintain .d.ts files in your codebase. TypeScript supports most JSDoc tags.
 
 ```powershell
-npm install --save-dev rollup-plugin-terser
+npm install --save-dev rollup-plugin-ignore
 npm install --save-dev ink-docstrap
 npm install --save-dev typescript
 ```
@@ -31,18 +29,6 @@ Execute rollup with default config file [rollup.config.js](rollup.config.js)
 
 ```powershell
 rollup -c
-```
-
-Minify generated es bundle with [rollup-plugin-terser](https://www.npmjs.com/package/rollup-plugin-terser).
-Example on how to customze rollup.config.js to generate a minified JS bundle
-```json
-{
-	file: 'dist/efficy-enterprise-api-browser-es.min.js',
-	format: 'es',
-	plugins: [terser()],
-	name: 'EfficyEnterpriseApi',
-	banner: `/* efficy-enterprise-api, browser version ${version} */`
-}
 ```
 
 ## Usage of jsDoc
