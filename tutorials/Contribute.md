@@ -69,7 +69,7 @@ npm i efficy-enterprise-api
 
 To publish updates, first increment the version, e.g.
 ```powershell
-npm version 1.0.1
+npm version patch
 ```
 
 Commit git changes and npm publish
