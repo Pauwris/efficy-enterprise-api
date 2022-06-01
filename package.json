@@ -38,12 +38,5 @@
 		"rollup-plugin-terser": "^7.0.2",
 		"typescript": "^4.6.3"
 	},
-	"type": "module",
-	"types": "./@types/index.d.mts",
-	"exports": {
-		".": {
-			"types": "./@types/index.d.mts",
-			"import": "./lib/index.mjs"
-		}
-	}
+	"type": "module"
 }
