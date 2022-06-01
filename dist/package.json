@@ -2,14 +2,16 @@
 	"name": "efficy-enterprise-api-browser",
 	"description": "The Efficy Enterprise API bundled for usage inside an Efficy browser session for client-side JSON RPC requests.",
 	"main": "es.js",
+	"types": "es.d.ts",
 	"files": [
 		"es.js",
 		"es.d.ts"
 	],
 	"scripts": {
-		"typings": "npx -p typescript tsc"
+		"typings": "npx -p typescript tsc",
+		"build": "npm-run-all typings"
 	},
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"homepage": "https://github.com/Pauwris/efficy-enterprise-api#readme",
 	"keywords": [
 		"Efficy",
@@ -27,6 +29,5 @@
 	},
 	"author": {
 		"name": "Kristof Pauwels"
-	},
-	"types": "index.d.ts"
+	}
 }

@@ -85,10 +85,11 @@
 <pre class="prettyprint source lang-powershell"><code>npm install --save-dev --global jsdoc
 npm install --save-dev --global rollup
 </code></pre>
-<p>We can use <a href="https://www.npmjs.com/package/rollup-plugin-terser">rollup-plugin-terser</a> to minify generated es bundle, the dist files with <code>.min.js</code> extensions.</p>
 <p><a href="https://www.npmjs.com/package/ink-docstrap">DocStrap</a> is Bootstrap based template for JSDoc3. In addition, it includes all of the themes from Bootswatch giving you a great deal of look and feel options for your documentation, along with a <strong>simple search</strong>. Additionally, it adds some options to the conf.json file that gives you even more flexibility to tweak the template to your needs. It will also make your teeth whiter.</p>
-<pre class="prettyprint source lang-powershell"><code>npm install --save-dev rollup-plugin-terser
+<p>We create <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html">.d.ts Files from.js files</a>, this set up means you can own the editor experience of TypeScript-powered editors without porting your project to TypeScript, or having to maintain .d.ts files in your codebase. TypeScript supports most JSDoc tags.</p>
+<pre class="prettyprint source lang-powershell"><code>npm install --save-dev rollup-plugin-ignore
 npm install --save-dev ink-docstrap
+npm install --save-dev typescript
 </code></pre>
 <h2>Usage of Rollup</h2>
 <p><a href="https://rollupjs.org/guide/en/">Usage guide</a></p>
@@ -96,21 +97,16 @@ npm install --save-dev ink-docstrap
 <p>Execute rollup with default config file <a href="rollup.config.js">rollup.config.js</a></p>
 <pre class="prettyprint source lang-powershell"><code>rollup -c
 </code></pre>
-<p>Minify generated es bundle with <a href="https://www.npmjs.com/package/rollup-plugin-terser">rollup-plugin-terser</a>.
-Example on how to customze rollup.config.js to generate a minified JS bundle</p>
-<pre class="prettyprint source lang-json"><code>{
-	file: 'dist/efficy-enterprise-api-browser-es.min.js',
-	format: 'es',
-	plugins: [terser()],
-	name: 'EfficyEnterpriseApi',
-	banner: `/* efficy-enterprise-api, browser version ${version} */`
-}
-</code></pre>
 <h2>Usage of jsDoc</h2>
 <p>With jsDoc, we generate the documentation and tutorials you current are reading!
 The jsDoc generation configuration in JSON format: <a href="jsdoc.conf.json">jsdoc.conf.json</a>.</p>
 <p>For the compile, we use templates</p>
 <pre class="prettyprint source lang-powershell"><code>jsdoc --configure jsdoc.conf.json --template ./node_modules/ink-docstrap/template
+</code></pre>
+<h2>Generate typings</h2>
+<p>We create <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html">.d.ts Files from.js files</a>, this set up means you can own the editor experience of TypeScript-powered editors without porting your project to TypeScript, or having to maintain .d.ts files in your codebase. TypeScript supports most JSDoc tags.</p>
+<p>This command uses <a href="../tsconfig.json">tsconfig.json</a></p>
+<pre class="prettyprint source lang-powershell"><code>npx -p typescript tsc
 </code></pre>
 <h2>Publish package to npm</h2>
 <p>A package manager for JavaScript, included with Node.js</p>
@@ -124,7 +120,7 @@ The jsDoc generation configuration in JSON format: <a href="jsdoc.conf.json">jsd
 <pre class="prettyprint source lang-powershell"><code>npm i efficy-enterprise-api
 </code></pre>
 <p>To publish updates, first increment the version, e.g.</p>
-<pre class="prettyprint source lang-powershell"><code>npm version 1.0.1
+<pre class="prettyprint source lang-powershell"><code>npm version patch
 </code></pre>
 <p>Commit git changes and npm publish</p>
 <pre class="prettyprint source lang-powershell"><code>npm publish
