@@ -5,6 +5,46 @@ export default CrmRpc;
 */
 declare class CrmRpc extends RemoteAPI {
     /**
+     * Retrieves the alias (name) of the currently connected database
+     * @returns {PropertyObject}
+     */
+    get currentDatabaseAlias(): PropertyObject;
+    /**
+     * Retrieves the current database timezone
+     * @returns {PropertyObject}
+     */
+    get currentDatabaseTimezone(): PropertyObject;
+    /**
+     * Retrieves the current license name
+     * @returns {PropertyObject}
+     */
+    get currentLicenseName(): PropertyObject;
+    /**
+     * Retrieves the current user full name
+     * @returns {PropertyObject}
+     */
+    get currentUserFullName(): PropertyObject;
+    /**
+     * Retrieves the group memberships of the current user as semicolon separated string list, e.g. "1;28;292;936"
+     * @returns {PropertyObject}
+     */
+    get currentUserGroups(): PropertyObject;
+    /**
+     * Retrieves the current user key, e.g. "4"
+     * @returns {PropertyObject}
+     */
+    get currentUserId(): PropertyObject;
+    /**
+     * Retrieves the current user code, e.g. "CRM01"
+     * @returns {PropertyObject}
+     */
+    get currentUserCode(): PropertyObject;
+    /**
+     * Retrieves the current user timezone
+     * @returns {PropertyObject}
+     */
+    get currentUserTimezone(): PropertyObject;
+    /**
      * Opens a consult context for the record identified by entity and key.
      * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
      * @param {string} entity - The entity name, e.g. "Comp"
@@ -233,10 +273,9 @@ declare class CrmRpc extends RemoteAPI {
     /**
      * Provides access to the methods of a constructed WsObject
      * Methods are isolated from RemoteObjects because they contain implicit executeBatch() operations
-     * @readonly
      * @type {WsObject}
      */
-    readonly get ws(): WsObject;
+    get ws(): WsObject;
     /**
      * Efficy Enterprise constants
      * @readonly
@@ -272,6 +311,7 @@ declare class CrmRpc extends RemoteAPI {
     };
 }
 import RemoteAPI from "./remote-api.mjs";
+import PropertyObject from "./remote-objects/base-type/property-object.mjs";
 import ConsultObject from "./remote-objects/consult.mjs";
 import EditObject from "./remote-objects/edit.mjs";
 import EditRelationObject from "./remote-objects/edit-relation.mjs";

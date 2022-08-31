@@ -79,11 +79,25 @@ async function singleThreadUnitTest() {
 	const compRecentsEx = crm.consultRecent("Comp", ["CITY", "COUNTRY"]);
 	const compFavorites = crm.consultFavorites("Comp");
 	const userList = crm.getUserList();
+	const sessionProperties = {
+		currentDatabaseAlias: crm.currentDatabaseAlias,
+		currentDatabaseTimezone: crm.currentDatabaseTimezone,
+		currentLicenseName: crm.currentLicenseName,
+		currentUserFullName: crm.currentUserFullName,
+		currentUserGroups: crm.currentUserGroups,
+		currentUserId: crm.currentUserId,
+		currentUserCode: crm.currentUserCode,
+		currentUserTimezone: crm.currentUserTimezone
+	}
 	await crm.executeBatch();
+
+	Object.keys(sessionProperties).forEach(key => {
+		console.log(`${key} = ${sessionProperties[key].result}`)
+	});
 
 	// https://nodejs.org/api/buffer.html#buffer
 	const path = "Efficy - Invoicing Module.pdf";
-	const filePath = "C:/temp/Efficy - Invoicing Module.pdf";
+	const filePath = "C:/kristof/NodeJs/efficy-enterprise-api/temp/Efficy - Invoicing Module.pdf";
 	const base64String = fs.readFileSync(filePath, { flag: 'r' }).toString('base64');
 
 	const attach = crm.openEditObject("docu", 229);
@@ -103,7 +117,7 @@ async function singleThreadUnitTest() {
 	const attachment = await attach.getAttachment(file.K_FILE, file.VERSION);
 	await crm.executeBatch();
 
-	const exportPath = "C:/temp/Efficy - Invoicing Module_saved.pdf";
+	const exportPath = "C:/kristof/NodeJs/efficy-enterprise-api/temp/Efficy - Invoicing Module_saved.pdf";
 	fs.writeFileSync(exportPath, Buffer.from(attachment.base64Stream, 'base64'));
 	attach.updateField("NAME", "File with max 7 attachments");
 	attach.insertAttachment(crm.constants.file_type.embedded, path);
@@ -155,7 +169,7 @@ async function singleThreadUnitTest() {
 	docu.updateCategoryField("DOCU$INVOICING", "PRE_PAID", 123.456)
 	docu.clearDetail("Comp");
 	docu.insertDetail("Comp", 4);
-	docu.insertDetail("Cont", 50512, false);
+	//docu.insertDetail("Cont", 50512, false);
 	docu.insertDetail("Prod", 4);
 	docu.updateDetail("Prod", 0, {
 		QUANTITY: 5

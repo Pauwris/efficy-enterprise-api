@@ -58,34 +58,29 @@ declare class CrmEnv {
     cookies: any[];
     /**
      * Returns true if this code runs in node.js
-     * @readonly
      * @type {boolean}
      */
-    readonly get isNode(): boolean;
+    get isNode(): boolean;
     /**
      * Returns true if this code runs on the browser
-     * @readonly
      * @type {boolean}
      */
-    readonly get isEfficy(): boolean;
+    get isEfficy(): boolean;
     /**
      * Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
-     * @readonly
      * @type {string}
      */
-    readonly get cookieHeader(): string;
+    get cookieHeader(): string;
     /**
      * Returns the session ID, e.g. '3B826396-22AE9698'
-     * @readonly
      * @type {string}
      */
-    readonly get sessionId(): string;
+    get sessionId(): string;
     /**
      * Returns the first part of the session ID, e.g. '3B826396'
-     * @readonly
      * @type {string}
      */
-    readonly get shortSessionId(): string;
+    get shortSessionId(): string;
     #private;
 }
 //# sourceMappingURL=crm-env.d.mts.map

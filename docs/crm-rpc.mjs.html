@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="EditRelationObject.html">EditRelationObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li><li><a href="WsObject.html">WsObject</a></li>
+					<li><a href="AttachmentObject.html">AttachmentObject</a></li><li><a href="CollectionObject.html">CollectionObject</a></li><li><a href="ConsultObject.html">ConsultObject</a></li><li><a href="CrmEnv.html">CrmEnv</a></li><li><a href="CrmRpc.html">CrmRpc</a></li><li><a href="DataSetObject.html">DataSetObject</a></li><li><a href="DeleteEntity.html">DeleteEntity</a></li><li><a href="EditObject.html">EditObject</a></li><li><a href="EditRelationObject.html">EditRelationObject</a></li><li><a href="ListObject.html">ListObject</a></li><li><a href="StringObject.html">StringObject</a></li><li><a href="WsObject.html">WsObject</a></li>
 				</ul>
 			</li>
 			
@@ -100,6 +100,7 @@ import SystemSettings from './remote-objects/list/system-settings.mjs';
 
 import StringObject from './remote-objects/base-type/string-object.mjs';
 import SettingObject from './remote-objects/base-type/setting-object.mjs';
+import PropertyObject from './remote-objects/base-type/property-object.mjs';
 
 /**
  * Class to create Remote Objects
@@ -133,6 +134,70 @@ class CrmRpc extends RemoteAPI {
 	 */
 	logoff() {
 		return super.logoff();
+	}
+
+	/**
+	 * Retrieves the alias (name) of the currently connected database
+	 * @returns {PropertyObject}
+	 */
+	get currentDatabaseAlias() {
+		return new PropertyObject(this, "currentdatabasealias");
+	}
+
+	/**
+	 * Retrieves the current database timezone
+	 * @returns {PropertyObject}
+	 */
+	get currentDatabaseTimezone() {
+		return new PropertyObject(this, "currentdatabasetimezone");
+	}
+
+	/**
+	 * Retrieves the current license name
+	 * @returns {PropertyObject}
+	 */
+	get currentLicenseName() {
+		return new PropertyObject(this, "currentlicensename");
+	}
+
+	/**
+	 * Retrieves the current user full name
+	 * @returns {PropertyObject}
+	 */
+	get currentUserFullName() {
+		return new PropertyObject(this, "currentuserfullname");
+	}
+
+	/**
+	 * Retrieves the group memberships of the current user as semicolon separated string list, e.g. "1;28;292;936"
+	 * @returns {PropertyObject}
+	 */
+	get currentUserGroups() {
+		return new PropertyObject(this, "currentusergroups");
+	}
+
+	/**
+	 * Retrieves the current user key, e.g. "4"
+	 * @returns {PropertyObject}
+	 */
+	get currentUserId() {
+		return new PropertyObject(this, "currentuserid");
+	}
+
+	/**
+	 * Retrieves the current user code, e.g. "CRM01"
+	 * @returns {PropertyObject}
+	 */
+	get currentUserCode() {
+		return new PropertyObject(this, "currentusername");
+	}
+
+	/**
+	 * Retrieves the current user timezone
+	 * @returns {PropertyObject}
+	 */
+	get currentUserTimezone() {
+		return new PropertyObject(this, "currentusertimezone");
 	}
 
 	/**
@@ -197,7 +262,7 @@ class CrmRpc extends RemoteAPI {
 	 * await crm.executeBatch();
 	 */
 	openEditObject(entity, key = 0) {
-		return new EditObject(this, null, entity, key);
+		return new EditObject(this, 0, entity, key);
 	}
 
 	/**
@@ -223,7 +288,7 @@ class CrmRpc extends RemoteAPI {
 	 * await crm.executeBatch();
 	 */
 	openEditRelationObject(entity, detail, key, detailKey, relationId) {
-		return new EditRelationObject(this, null, entity, detail, key, detailKey, relationId);
+		return new EditRelationObject(this, 0, entity, detail, key, detailKey, relationId);
 	}
 
 	/**
@@ -278,7 +343,7 @@ class CrmRpc extends RemoteAPI {
 	 * const contactsByPhone = crm.searchContactsByPhone("+32 474 00 00 00");
 	 */
 	searchContactsByPhone(phoneNumber) {
-		return new ContactsList(this, null, phoneNumber);
+		return new ContactsList(this, undefined, phoneNumber);
 	}
 
 	/**
@@ -431,7 +496,6 @@ class CrmRpc extends RemoteAPI {
 	/**
 	 * Provides access to the methods of a constructed WsObject
 	 * Methods are isolated from RemoteObjects because they contain implicit executeBatch() operations
-	 * @readonly
 	 * @type {WsObject}
 	 */
 	get ws() {

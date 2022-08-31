@@ -70,7 +70,6 @@ class CrmEnv {
 
 	/**
 	 * Returns true if this code runs in node.js
-	 * @readonly
 	 * @type {boolean}
 	 */
 	get isNode() {
@@ -79,7 +78,6 @@ class CrmEnv {
 
 	/**
 	 * Returns true if this code runs on the browser
-	 * @readonly
 	 * @type {boolean}
 	 */
 	get isEfficy() {
@@ -88,7 +86,6 @@ class CrmEnv {
 
 	/**
 	 * Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
-	 * @readonly
 	 * @type {string}
 	 */
 	get cookieHeader() {
@@ -99,11 +96,11 @@ class CrmEnv {
 
 			return header;
 		}
+		return "";
 	}
 
 	/**
 	 * Returns the session ID, e.g. '3B826396-22AE9698'
-	 * @readonly
 	 * @type {string}
 	 */
 	get sessionId() {
@@ -112,7 +109,6 @@ class CrmEnv {
 
 	/**
 	 * Returns the first part of the session ID, e.g. '3B826396'
-	 * @readonly
 	 * @type {string}
 	 */
 	get shortSessionId() {
@@ -453,8 +449,9 @@ class RemoteAPI {
 
 			rql.log();
 
-			if (responseObject.error === true) {
-				throw Error(`/json: ${responseObject.code} - ${responseObject.message}`);
+			if (rql.exception?.error === true) {
+				const ex = rql.exception;
+				throw Error(`/json: ${ex?.code || ex?.errorcode} - ${ex?.message || ex?.errorstring} - ${ex?.detail}`);
 			}
 
 			return responseObject;
@@ -513,7 +510,13 @@ class RemoteAPI {
 	}
 	/** @private */
 	getRpcException(responseObject) {
-		return responseObject.find(operation => operation["@name"] === "exception");
+		if (Array.isArray(responseObject)) {
+			return responseObject.find(operation => operation["@name"] === "exception");
+		} else if (typeof responseObject === "object" && typeof responseObject["#error"] === "object") {
+			const errorObject = responseObject["#error"];
+			errorObject.error = true;
+			return errorObject;
+		}
 	}
 }
 class RequestLog {
@@ -1032,7 +1035,7 @@ class EditObject extends RemoteObject {
 		this.#attachmentList = new AttachmentList(remoteAPI);
 
 		this.inserted = (this.key === 0);
-		this.edithandle = editHandle;
+		this.edithandle = editHandle > 0 ? editHandle : null;
 
 		this.#resetState();
 		this.#setDirty();
@@ -1041,7 +1044,7 @@ class EditObject extends RemoteObject {
 	#resetState() {
 		this.commit = null;
 		this.closecontext = null;
-		this.inserted = null;
+		this.inserted = false;
 		this.#masterData = {};
 		this.#categories = {};
 		this.#details = {};
@@ -1678,7 +1681,7 @@ class EditRelationObject extends RemoteObject {
 		this.#dataSetList = new DataSetList(remoteAPI);
 
 		this.inserted = (this.key === 0);
-		this.edithandle = editHandle;
+		this.edithandle = editHandle > 0 ? editHandle : null;
 
 		if (this.relationId != null) {
 			this.detailkey = [this.detailkey, this.relationId].join("_");
@@ -1881,8 +1884,6 @@ class SearchObject extends DataSetObject {
 /**
  * Class returned by methods such as getCategoryCollection
  * @extends DataSetObject
- * @property {array} items - The to array-converted DataSet. Only available after executeBatch()
- * @property {string} item - When exists, the first item of the items array, else null. Only available after executeBatch()
  */
 class CollectionObject extends DataSetObject {
 	constructor(remoteAPI, entity, detail) {
@@ -1910,7 +1911,11 @@ class CollectionObject extends DataSetObject {
 	}
 }
 
-class DeleteEntity extends RemoteObject {
+/**
+ * Class returned by methods such as deleteEntity
+ * @extends RemoteObject
+ */
+ class DeleteEntity extends RemoteObject {
 	constructor(remoteAPI, entity, keys) {
 		super(remoteAPI);
 		this.entity = entity;
@@ -2281,6 +2286,36 @@ class SettingObject extends StringObject {
 }
 
 /**
+ * Class returned by API property operation such as currentdatabasealias, currentuserfullname
+ * @extends StringObject
+ * @param {string} name - The name of the API property
+ */
+class PropertyObject extends StringObject {
+	name;
+
+	constructor(remoteAPI, name) {
+		super(remoteAPI);
+		this.operationName = name;
+		this.api.registerObject(this);
+	}
+
+	/** @protected */
+	asJsonRpc() {
+		const api = {
+			"@name": this.operationName
+		};
+
+		const requestObject = this.requestObject = {
+			"#id": this.id,
+			"@name": "api",
+			"@func": [api]
+		};
+
+		return requestObject;
+	}
+}
+
+/**
  * Class to create Remote Objects
  * @extends RemoteAPI
 */
@@ -2312,6 +2347,70 @@ class CrmRpc extends RemoteAPI {
 	 */
 	logoff() {
 		return super.logoff();
+	}
+
+	/**
+	 * Retrieves the alias (name) of the currently connected database
+	 * @returns {PropertyObject}
+	 */
+	get currentDatabaseAlias() {
+		return new PropertyObject(this, "currentdatabasealias");
+	}
+
+	/**
+	 * Retrieves the current database timezone
+	 * @returns {PropertyObject}
+	 */
+	get currentDatabaseTimezone() {
+		return new PropertyObject(this, "currentdatabasetimezone");
+	}
+
+	/**
+	 * Retrieves the current license name
+	 * @returns {PropertyObject}
+	 */
+	get currentLicenseName() {
+		return new PropertyObject(this, "currentlicensename");
+	}
+
+	/**
+	 * Retrieves the current user full name
+	 * @returns {PropertyObject}
+	 */
+	get currentUserFullName() {
+		return new PropertyObject(this, "currentuserfullname");
+	}
+
+	/**
+	 * Retrieves the group memberships of the current user as semicolon separated string list, e.g. "1;28;292;936"
+	 * @returns {PropertyObject}
+	 */
+	get currentUserGroups() {
+		return new PropertyObject(this, "currentusergroups");
+	}
+
+	/**
+	 * Retrieves the current user key, e.g. "4"
+	 * @returns {PropertyObject}
+	 */
+	get currentUserId() {
+		return new PropertyObject(this, "currentuserid");
+	}
+
+	/**
+	 * Retrieves the current user code, e.g. "CRM01"
+	 * @returns {PropertyObject}
+	 */
+	get currentUserCode() {
+		return new PropertyObject(this, "currentusername");
+	}
+
+	/**
+	 * Retrieves the current user timezone
+	 * @returns {PropertyObject}
+	 */
+	get currentUserTimezone() {
+		return new PropertyObject(this, "currentusertimezone");
 	}
 
 	/**
@@ -2376,7 +2475,7 @@ class CrmRpc extends RemoteAPI {
 	 * await crm.executeBatch();
 	 */
 	openEditObject(entity, key = 0) {
-		return new EditObject(this, null, entity, key);
+		return new EditObject(this, 0, entity, key);
 	}
 
 	/**
@@ -2402,7 +2501,7 @@ class CrmRpc extends RemoteAPI {
 	 * await crm.executeBatch();
 	 */
 	openEditRelationObject(entity, detail, key, detailKey, relationId) {
-		return new EditRelationObject(this, null, entity, detail, key, detailKey, relationId);
+		return new EditRelationObject(this, 0, entity, detail, key, detailKey, relationId);
 	}
 
 	/**
@@ -2457,7 +2556,7 @@ class CrmRpc extends RemoteAPI {
 	 * const contactsByPhone = crm.searchContactsByPhone("+32 474 00 00 00");
 	 */
 	searchContactsByPhone(phoneNumber) {
-		return new ContactsList(this, null, phoneNumber);
+		return new ContactsList(this, undefined, phoneNumber);
 	}
 
 	/**
@@ -2610,7 +2709,6 @@ class CrmRpc extends RemoteAPI {
 	/**
 	 * Provides access to the methods of a constructed WsObject
 	 * Methods are isolated from RemoteObjects because they contain implicit executeBatch() operations
-	 * @readonly
 	 * @type {WsObject}
 	 */
 	get ws() {
