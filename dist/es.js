@@ -370,7 +370,16 @@ class RemoteAPI {
 
 		try {
 			const response = await this.post(requestObject);
-			if (!Array.isArray(response)) throw new TypeError(`${this.#name}.executeBatch::responseObject is not an Array`);
+			if (Array.isArray(response)) {
+				// Do nothing, all good!
+			} else if (typeof response === "object" && this.getRpcException(response)) {
+				const ex = this.getRpcException(response);
+				throw Error(`${ex["#error"].errorcode} - ${ex["#error"].errorstring}`);
+			} else if (!response) {
+				throw new TypeError(`${this.#name}.executeBatch::empty response`);
+			} else {
+				throw new TypeError(`${this.#name}.executeBatch::responseObject is not an Array`);
+			}
 			responseObject.push(...response);
 			this.lastResponseObject = responseObject;
 		} catch(ex) {
@@ -516,6 +525,14 @@ class RemoteAPI {
 			const errorObject = responseObject["#error"];
 			errorObject.error = true;
 			return errorObject;
+		} else if (typeof responseObject === "object" && responseObject["error"] === true) {
+			return {
+				"#error": {
+					error: true,
+					errorcode: responseObject.code,
+					errorstring: responseObject.message
+				}
+			}
 		}
 	}
 }
