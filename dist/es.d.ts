@@ -57,34 +57,29 @@ export class CrmEnv {
     cookies: any[];
     /**
      * Returns true if this code runs in node.js
-     * @readonly
      * @type {boolean}
      */
-    readonly get isNode(): boolean;
+    get isNode(): boolean;
     /**
      * Returns true if this code runs on the browser
-     * @readonly
      * @type {boolean}
      */
-    readonly get isEfficy(): boolean;
+    get isEfficy(): boolean;
     /**
      * Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
-     * @readonly
      * @type {string}
      */
-    readonly get cookieHeader(): string;
+    get cookieHeader(): string;
     /**
      * Returns the session ID, e.g. '3B826396-22AE9698'
-     * @readonly
      * @type {string}
      */
-    readonly get sessionId(): string;
+    get sessionId(): string;
     /**
      * Returns the first part of the session ID, e.g. '3B826396'
-     * @readonly
      * @type {string}
      */
-    readonly get shortSessionId(): string;
+    get shortSessionId(): string;
     #private;
 }
 /**
@@ -92,6 +87,46 @@ export class CrmEnv {
  * @extends RemoteAPI
 */
 export class CrmRpc extends RemoteAPI {
+    /**
+     * Retrieves the alias (name) of the currently connected database
+     * @returns {PropertyObject}
+     */
+    get currentDatabaseAlias(): PropertyObject;
+    /**
+     * Retrieves the current database timezone
+     * @returns {PropertyObject}
+     */
+    get currentDatabaseTimezone(): PropertyObject;
+    /**
+     * Retrieves the current license name
+     * @returns {PropertyObject}
+     */
+    get currentLicenseName(): PropertyObject;
+    /**
+     * Retrieves the current user full name
+     * @returns {PropertyObject}
+     */
+    get currentUserFullName(): PropertyObject;
+    /**
+     * Retrieves the group memberships of the current user as semicolon separated string list, e.g. "1;28;292;936"
+     * @returns {PropertyObject}
+     */
+    get currentUserGroups(): PropertyObject;
+    /**
+     * Retrieves the current user key, e.g. "4"
+     * @returns {PropertyObject}
+     */
+    get currentUserId(): PropertyObject;
+    /**
+     * Retrieves the current user code, e.g. "CRM01"
+     * @returns {PropertyObject}
+     */
+    get currentUserCode(): PropertyObject;
+    /**
+     * Retrieves the current user timezone
+     * @returns {PropertyObject}
+     */
+    get currentUserTimezone(): PropertyObject;
     /**
      * Opens a consult context for the record identified by entity and key.
      * A context remains memory-resident (on the web server) until it is closed. Always match with a closeContext() call to avoid memory consumption.
@@ -321,10 +356,9 @@ export class CrmRpc extends RemoteAPI {
     /**
      * Provides access to the methods of a constructed WsObject
      * Methods are isolated from RemoteObjects because they contain implicit executeBatch() operations
-     * @readonly
      * @type {WsObject}
      */
-    readonly get ws(): WsObject;
+    get ws(): WsObject;
     /**
      * Efficy Enterprise constants
      * @readonly
@@ -416,6 +450,23 @@ declare class RemoteAPI {
     /** @private */
     private getRpcException;
     #private;
+}
+/**
+ * Class returned by API property operation such as currentdatabasealias, currentuserfullname
+ * @extends StringObject
+ * @param {string} name - The name of the API property
+ */
+declare class PropertyObject extends StringObject {
+    constructor(remoteAPI: any, name: any);
+    name: any;
+    /** @protected */
+    protected asJsonRpc(): {
+        "#id": string;
+        "@name": string;
+        "@func": {
+            "@name": any;
+        }[];
+    };
 }
 /**
  * Class returned by openConsultObject
