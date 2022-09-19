@@ -401,7 +401,8 @@ export class CrmRpc extends RemoteAPI {
  * @property {number} requestCounter
  * @property {number} threadId
  * @property {object} lastResponseObject
- * @property {function} log
+ * @property {function} logFunction
+ * @property {function} errorFunction
  */
 declare class RemoteAPI {
     /**
@@ -413,14 +414,16 @@ declare class RemoteAPI {
     constructor(crmEnv?: CrmEnv, logFunction?: Function, threadId?: number);
     crmEnv: CrmEnv;
     remoteObjects: any[];
-    logFunction: Function;
     requestCounter: number;
     threadId: number;
     lastResponseObject: any;
+    logFunction: Function;
+    errorFunction: any;
     /**
      * Execute all assembled and queued RPC operations
      */
     executeBatch(): Promise<void>;
+    throwError(message: any): void;
     /**
      * Logoff the remote session, not possible when crmEnv.isEfficy === true
      */

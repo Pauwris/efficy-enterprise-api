@@ -298,16 +298,18 @@ function findDeep(object, searchObject) {
  * @property {number} requestCounter
  * @property {number} threadId
  * @property {object} lastResponseObject
- * @property {function} log
+ * @property {function} logFunction
+ * @property {function} errorFunction
  */
 class RemoteAPI {
 	#name = "RemoteAPI";
 	crmEnv;
 	remoteObjects;
-	logFunction;
 	requestCounter = 0;
 	threadId = 1;
 	lastResponseObject;
+	logFunction;
+	errorFunction;
 
 	/**
 	 * Construct a RemoteAPI object
@@ -340,7 +342,7 @@ class RemoteAPI {
 				this.#fetchOptions.headers["X-Efficy-Logoff"] = true;
 			}
 		} catch(ex) {
-			throw Error(`${this.#name}.readEnv::${ex.message}`)
+			this.throwError(`${this.#name}.readEnv::${ex.message}`);
 		}
 	}
 
@@ -362,7 +364,7 @@ class RemoteAPI {
 		try {
 			requestObject.push(...this.remoteObjects.map(item => item.asJsonRpc()));
 		} catch(ex) {
-			throw Error(`${this.#name}.executeBatch::asJsonRpc\n${ex.message}`);
+			this.throwError(`${this.#name}.executeBatch::asJsonRpc\n${ex.message}`);
 		}
 
 		// Nothing to execute, ignore silently
@@ -374,7 +376,7 @@ class RemoteAPI {
 				// Do nothing, all good!
 			} else if (typeof response === "object" && this.getRpcException(response)) {
 				const ex = this.getRpcException(response);
-				throw Error(`${ex["#error"].errorcode} - ${ex["#error"].errorstring}`);
+				this.throwError(`${ex["#error"].errorcode} - ${ex["#error"].errorstring}`);
 			} else if (!response) {
 				throw new TypeError(`${this.#name}.executeBatch::empty response`);
 			} else {
@@ -383,7 +385,7 @@ class RemoteAPI {
 			responseObject.push(...response);
 			this.lastResponseObject = responseObject;
 		} catch(ex) {
-			throw Error(`${this.#name}.executeBatch::${ex.message}`);
+			this.throwError(`${this.#name}.executeBatch::${ex.message}`);
 		}
 
 		// Add response info to operations and remove executed operations (handled or not)
@@ -393,7 +395,7 @@ class RemoteAPI {
 			const operation = items[index];
 			const respOper = responseObject.find(respOper => respOper["#id"] === operation.id);
 			if (!respOper)
-			throw Error(`${this.#name}.executeBatch::cannot find response for queued operation [${index}/${items.length}]`);
+			this.throwError(`${this.#name}.executeBatch::cannot find response for queued operation [${index}/${items.length}]`);
 			Object.assign(operation.responseObject, respOper);
 			operation.afterExecute();
 			items.splice(index, 1);
@@ -401,7 +403,15 @@ class RemoteAPI {
 
 		// Error handling
 		const ex = this.getRpcException(responseObject);
-		if (ex) throw Error(`${ex["#error"].errorcode} - ${ex["#error"].errorstring}`);
+		if (ex) this.throwError(`${ex["#error"].errorcode} - ${ex["#error"].errorstring}`);
+	}
+
+	throwError(message) {
+		if (typeof this.errorFunction === "function") {
+			this.errorFunction(message);
+		} else {
+			throw Error(message);
+		}
 	}
 
 	/**
@@ -409,7 +419,7 @@ class RemoteAPI {
 	 */
 	logoff() {
 		if (this.crmEnv.isEfficy) {
-			throw Error(`${this.#name}.logoff::method disable for this environment`);
+			this.throwError(`${this.#name}.logoff::method disable for this environment`);
 		}
 		this.crmEnv.logOff = true;
 		this.#setFetchOptions();
@@ -442,14 +452,15 @@ class RemoteAPI {
 				responseBody = await response.text();
 				responseObject = JSON.parse(responseBody || "[]");
 			} catch(ex) {
-				throw Error(`invalid JSON response from resource '${requestUrl}'`)
+				this.throwError(`invalid JSON response from resource '${requestUrl}'`);
 			}
 
 			rql.setResponse(response, responseObject);
 			rql.exception = this.getRpcException(responseObject);
 
+			// @ts-ignore
 			if (typeof response.headers.raw === "function") {
-				const cookies = parse(response.headers.raw()['set-cookie']);
+				const cookies = parse(response.headers.raw()['set-cookie'], null);
 				if (cookies.length > 0) {
 					this.crmEnv.cookies = cookies;
 					this.sessionId = this.crmEnv.shortSessionId;
@@ -460,12 +471,12 @@ class RemoteAPI {
 
 			if (rql.exception?.error === true) {
 				const ex = rql.exception;
-				throw Error(`/json: ${ex?.code || ex?.errorcode} - ${ex?.message || ex?.errorstring} - ${ex?.detail}`);
+				this.throwError(`/json: ${ex?.code || ex?.errorcode} - ${ex?.message || ex?.errorstring} - ${ex?.detail}`);
 			}
 
 			return responseObject;
 		} catch(ex) {
-			throw Error(`${this.#name}.post::${ex.message}`);
+			this.throwError(`${this.#name}.post::${ex.message}`);
 		}
 	}
 
