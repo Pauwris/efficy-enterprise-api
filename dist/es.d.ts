@@ -61,11 +61,6 @@ export class CrmEnv {
      */
     get isNode(): boolean;
     /**
-     * Returns true if this code runs on the browser
-     * @type {boolean}
-     */
-    get isEfficy(): boolean;
-    /**
      * Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
      * @type {string}
      */
@@ -425,7 +420,7 @@ declare class RemoteAPI {
     executeBatch(): Promise<void>;
     throwError(message: any): void;
     /**
-     * Logoff the remote session, not possible when crmEnv.isEfficy === true
+     * Logoff the remote session
      */
     logoff(): void;
     /** @private */

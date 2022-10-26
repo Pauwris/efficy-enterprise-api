@@ -97,7 +97,7 @@ async function singleThreadUnitTest() {
 
 	// https://nodejs.org/api/buffer.html#buffer
 	const path = "Efficy - Invoicing Module.pdf";
-	const filePath = "C:/kristof/NodeJs/efficy-enterprise-api/temp/Efficy - Invoicing Module.pdf";
+	const filePath = "C:/Efficy/Temp/VS2005_Release_Notes.pdf";
 	const base64String = fs.readFileSync(filePath, { flag: 'r' }).toString('base64');
 
 	const attach = crm.openEditObject("docu", 229);
@@ -117,7 +117,7 @@ async function singleThreadUnitTest() {
 	const attachment = await attach.getAttachment(file.K_FILE, file.VERSION);
 	await crm.executeBatch();
 
-	const exportPath = "C:/kristof/NodeJs/efficy-enterprise-api/temp/Efficy - Invoicing Module_saved.pdf";
+	const exportPath = "C:/Efficy/Temp/efficy-enterprise-unittest_exported.pdf"
 	fs.writeFileSync(exportPath, Buffer.from(attachment.base64Stream, 'base64'));
 	attach.updateField("NAME", "File with max 7 attachments");
 	attach.insertAttachment(crm.constants.file_type.embedded, path);

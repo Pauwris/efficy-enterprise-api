@@ -62,11 +62,6 @@ declare class CrmEnv {
      */
     get isNode(): boolean;
     /**
-     * Returns true if this code runs on the browser
-     * @type {boolean}
-     */
-    get isEfficy(): boolean;
-    /**
      * Returns the request header "cookie", e.g. 'EfficySession=3B826396-22AE9698'
      * @type {string}
      */

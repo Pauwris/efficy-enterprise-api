@@ -4,7 +4,6 @@
 class CrmEnv {
 	#name = "CrmEnv";
 	#isNode = (typeof process !== "undefined" && process?.versions?.node ? true : false);
-	#isEfficy = false;
 
 	/**
 	 * Create a Crm Environment. Set null when executed from browser
@@ -27,13 +26,10 @@ class CrmEnv {
 		if (typeof env === "object") {
 			this.setEnv(env);
 		} else {
-			this.#isEfficy = true;
 			this.setEnv({
 				url: window.location.origin
 			});
 		}
-
-		this.#validate();
 	}
 
 	/**
@@ -60,12 +56,6 @@ class CrmEnv {
 
 		// Replace last "/" with "";
 		this.url = this.url.replace(/\/$/,"");
-
-		this.#validate();
-	}
-
-	#validate() {
-		if (!this.#isEfficy && !this.user && !this.apiKey) throw new TypeError(`${this.#name}.validate::apiKey or user are not specified`);
 	}
 
 	/**
@@ -74,14 +64,6 @@ class CrmEnv {
 	 */
 	get isNode() {
 		return this.#isNode;
-	}
-
-	/**
-	 * Returns true if this code runs on the browser
-	 * @type {boolean}
-	 */
-	get isEfficy() {
-		return this.#isEfficy;
 	}
 
 	/**
@@ -415,12 +397,9 @@ class RemoteAPI {
 	}
 
 	/**
-	 * Logoff the remote session, not possible when crmEnv.isEfficy === true
+	 * Logoff the remote session
 	 */
 	logoff() {
-		if (this.crmEnv.isEfficy) {
-			this.throwError(`${this.#name}.logoff::method disable for this environment`);
-		}
 		this.crmEnv.logOff = true;
 		this.#setFetchOptions();
 	}
@@ -460,6 +439,7 @@ class RemoteAPI {
 
 			// @ts-ignore
 			if (typeof response.headers.raw === "function") {
+				// @ts-ignore
 				const cookies = parse(response.headers.raw()['set-cookie'], null);
 				if (cookies.length > 0) {
 					this.crmEnv.cookies = cookies;
@@ -2371,7 +2351,7 @@ class CrmRpc extends RemoteAPI {
 		return super.executeBatch();
 	}
 	/**
-	 * Logoff the remote session, not possible when crmEnv.isEfficy === true
+	 * Logoff the remote session
 	 */
 	logoff() {
 		return super.logoff();
