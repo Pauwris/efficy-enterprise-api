@@ -333,7 +333,8 @@ class RemoteAPI {
 		headers: {
 			'Content-Type': 'application/json',
 			'Accept': 'application/json'
-		}
+		},
+		credentials: 'include' // Always send user credentials (cookies, basic http auth, etc..), even for cross-origin calls.
 	}
 
 	/**
