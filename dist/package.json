@@ -11,7 +11,7 @@
 		"typings": "npx -p typescript tsc",
 		"build": "npm-run-all typings"
 	},
-	"version": "1.0.19",
+	"version": "1.0.20",
 	"homepage": "https://github.com/Pauwris/efficy-enterprise-api#readme",
 	"keywords": [
 		"Efficy",

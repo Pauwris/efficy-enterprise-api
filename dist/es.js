@@ -251,7 +251,7 @@ function findDeep(object, searchObject) {
 			const result = findDeep(obj, searchObject);
 			if (result) return result;
 		}
-	} else if (typeof object === "object") {
+	} else if (typeof object === "object" && object !== null) {
 		let matched = true;
 		Object.keys(searchObject).filter(key => {
 			if (!object.hasOwnProperty(key) || object[key] !== searchObject[key]) {
@@ -467,9 +467,13 @@ class RemoteAPI {
 		if (typeof resp !== "object") return;
 
 		const result = findDeep(resp, {"#class": dataSetName});
-		if (!result || !Array.isArray(result["#data"])) return;
+		if (!result || typeof result["#data"] !== "object" || result["#data"] === null) return;
 
-		return result["#data"];
+		if (Array.isArray(result["#data"])) {
+			return result["#data"]; // Efficy Enterprise
+		} else if (Array.isArray(result["#data"]["data"])) {
+			return result["#data"]["data"]; // Efficy U (with earlier bug)
+		}
 	}
 	findListArray(resp, listName = "stringlist") {
 		return this.findDataSetArray(resp, listName);
@@ -812,11 +816,11 @@ class DataSetList extends RemoteObject {
 		//return this.#master = new DataSet("master");
 
 		if (masterView > 0) {
-			this.#master1 = new DataSet("master");
+			this.#master1 = new DataSet("master", undefined, undefined, undefined);
 			this.#master1.tableView = 1;
 			return this.#master1;
 		} else {
-			this.#master = new DataSet("master");
+			this.#master = new DataSet("master", undefined, undefined, undefined);
 			return this.#master;
 		}
 	}
